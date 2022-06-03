@@ -57,6 +57,7 @@ h2{
     user-select: none;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 body,main{
     display: flex;
@@ -128,4 +129,15 @@ main >*{
 }
 .default_button:hover{
     background-color: var(--primary);
+}
+
+@media screen and (max-width: 768px){
+    main{
+        text-align: center;
+        align-items: center;
+        width: 85%;
+    }
+    .background{
+        background: none;
+    }
 }

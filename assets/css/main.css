@@ -128,4 +128,21 @@ main >*{
 }
 .default_button:hover{
     background-color: var(--primary);
+<<<<<<< Updated upstream
+=======
+}
+
+@media screen and (max-width: 768px){
+    html{
+        overflow: auto;
+    }
+    main{
+        text-align: center;
+        align-items: center;
+        width: 85%;
+    }
+    .background{
+        background: none;
+    }
+>>>>>>> Stashed changes
 }

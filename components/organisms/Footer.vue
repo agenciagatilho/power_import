@@ -178,6 +178,7 @@ export default {
       }
       ._bottom_footer{
         @apply flex justify-between;
+        font-family: 'Intelo';
       }
     }
   }

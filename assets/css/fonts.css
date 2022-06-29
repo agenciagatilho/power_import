@@ -1,1 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Intelo';
+  src: url('@/assets/fonts/Intelo-Regular.ttf');
+}

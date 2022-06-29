@@ -1,6 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
 @font-face {
   font-family: 'Intelo';
   src: url('@/assets/fonts/Intelo-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('@/assets/fonts/Cairo-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('@/assets/fonts/Cairo-Bold.ttf');
+  font-weight: 700;
 }

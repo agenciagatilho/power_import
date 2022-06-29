@@ -43,4 +43,13 @@ export default {
       -webkit-mask-size: cover;
     }
   }
+
+@media screen and (max-width: 768px) {
+  ._masked_background{
+    ._mask{
+      mask-position: 45%;
+      -webkit-mask-position: 45%;
+    }
+  }
+}
 </style>

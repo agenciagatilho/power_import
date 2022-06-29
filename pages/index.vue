@@ -6,7 +6,11 @@
         <h2>{{ home.soluctionsForSolarProducts.title }}</h2>
         <p>{{ home.soluctionsForSolarProducts.description }}</p>
       </div>
-      <span class="_buttons">
+      <component
+        v-bind="settingsMobile"
+        :is="$device.isMobile?'VueSlickCarousel':'div'"
+        class="_buttons"
+      >
         <div
           v-for="(item, index) in home.soluctionsForSolarProducts.items"
           :key="index"
@@ -17,7 +21,7 @@
           <div class="_icon" :style="`--icon: url(${require('assets/svgs/icons/'+index+'.svg')});`" />
           <p>{{ item.text }}</p>
         </div>
-      </span>
+      </component>
     </v-container>
     <GridTwoImageWithTextAndCta :item="home.thoughtsTomorrow" image="images/young-man-working-at-renewable-energy-farm-eco.png" />
     <FullscreenLinearText :item="home.partnershipForSecurity" image="images/background-linear-home.png" color="#ED7220CC" />
@@ -41,8 +45,15 @@
 </template>
 
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
 import home from '@/data/ptbr/home.json'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
 export default {
+  components: {
+    VueSlickCarousel
+  },
   data () {
     return {
       home,
@@ -50,7 +61,16 @@ export default {
         src: 'images/banner_home.png',
         color: '#5EAC55'
       },
-      currentSoluctionSelected: 'agro'
+      currentSoluctionSelected: 'agro',
+      settingsMobile: {
+        centerMode: true,
+        centerPadding: '20px',
+        focusOnSelect: true,
+        infinite: true,
+        slidesToShow: 1,
+        speed: 500,
+        variableWidth: true
+      }
     }
   },
   head () {
@@ -117,7 +137,6 @@ export default {
           &.active{
              @apply bg-$secondary;
             ._icon{
-              @apply w-90px h-90px;
               background-color: var(--text-light);
             }
           }
@@ -162,6 +181,88 @@ export default {
 
         button{
           @apply col-start-2 ml-auto px-60px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home {
+    @apply gap-50px text-center;
+
+    .soluctionsForSolarProducts{
+      @apply py-30px -mt-50px;
+      >*{
+        @apply flex-col gap-50px;
+        ._text{
+          @apply w-350px flex flex-col gap-30px;
+        }
+
+        ._buttons{
+          @apply block gap-0px max-w-88vw;
+
+          .slick-slide{
+            @apply px-15px;
+
+            ._item{
+              @apply px-20px text-center;
+
+              ._icon{
+                @apply mx-auto mb-10px;
+              }
+
+              &.active{
+                  @apply bg-transparent;
+                ._icon{
+                  background-color: var(--secondary);
+                }
+              }
+            }
+
+            &.slick-current{
+              ._item{
+                @apply bg-$secondary;
+                ._icon{
+                  background-color: var(--text-light);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ._renewable_energy{
+      .container{
+        @apply w-full;
+
+        .default_button{
+          @apply bg-$primary px-60px;
+        }
+      }
+    }
+
+    .newsletter_section {
+      @apply bg-$secondary text-$text-light py-50px -mb-75px;
+      .container{
+        @apply flex-col gap-50px;
+
+        ._text{
+          @apply max-w-full gap-25px;
+
+          p{
+            @apply max-w-full;
+          }
+        }
+
+        #newsletter{
+          @apply grid-cols-1 gap-y-15px
+                w-full;
+
+          button{
+            @apply col-start-1 w-full;
+          }
         }
       }
     }

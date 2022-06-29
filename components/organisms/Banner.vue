@@ -40,4 +40,20 @@ export default {
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  ._banner {
+    >.container{
+      h1{
+        @apply max-w-500px;
+      }
+      p{
+        @apply max-w-470px;
+      }
+      .default_button{
+        @apply px-40px w-full;
+      }
+    }
+  }
+}
 </style>

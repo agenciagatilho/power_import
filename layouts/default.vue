@@ -1,6 +1,7 @@
 <template>
   <div id="body">
-    <Header />
+    <Header @MobileMenu="state=>menu=state" />
+    <MobileMenu v-if="$device.isMobile" :class="{'show': menu}" />
     <Nuxt />
     <Footer />
   </div>
@@ -13,7 +14,8 @@ export default {
   data () {
     return {
       footer,
-      social
+      social,
+      menu: false
     }
   }
 }
@@ -26,7 +28,7 @@ export default {
 
   @media screen and (max-width: 768px) {
     #body{
-
+      @apply gap-50px relative;
     }
   }
 </style>

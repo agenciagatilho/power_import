@@ -50,8 +50,7 @@ export default {
         @apply flex flex-col justify-center gap-30px;
 
         h3{
-          @apply text-28px -mt-25px;
-          line-height: 32px;
+          @apply -mt-25px;
         }
       }
     }
@@ -69,4 +68,38 @@ export default {
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  ._grid_two_image_with_text_and_cta{
+    .container{
+      @apply grid-cols-1 gap-30px;
+
+      ._image{
+        width: calc(100% + 80px);
+        img {
+          margin-left: -40px;
+        }
+      }
+
+      ._text{
+        .default_button{
+          @apply mx-auto;
+        }
+      }
+    }
+
+    &.inverted .container{
+      ._image{
+        @apply col-start-2;
+        img {
+          @apply w-full h-full;
+          margin-left: 0px;
+        }
+      }
+      ._text{
+        @apply col-start-1 row-start-1;
+      }
+    }
+  }
+}
 </style>

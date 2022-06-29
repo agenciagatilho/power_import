@@ -1,7 +1,7 @@
 <template>
   <div id="body" :class="{'menu_active': menu}">
     <Header @MobileMenu="state=>menu=state" />
-    <MobileMenu v-if="$device.isMobile" :class="{'show': menu}" />
+    <!-- <MobileMenu v-if="$device.isMobile" :class="{'show': menu}" /> -->
     <Nuxt />
     <Footer />
   </div>

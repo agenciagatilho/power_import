@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss">
   ._mobile_menu{
-    @apply fixed w-full h-full top-0 left-0
+    @apply hidden fixed w-full h-full top-0 left-0
            bg-white z-10;
   }
 </style>

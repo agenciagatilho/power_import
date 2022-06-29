@@ -24,11 +24,16 @@ export default {
 
 <style lang="scss">
   ._mobile_menu_icon{
+    @apply hidden;
+  }
+
+@media screen and (max-width: 768px) {
+  ._mobile_menu_icon{
     @apply flex flex-col gap-5px
-           w-30px;
+          w-30px;
     span{
       @apply w-full h-2px rounded-full
-             bg-$text transform;
+            bg-$text transform;
       transition: all 0.2s ease-in-out;
     }
 
@@ -46,4 +51,5 @@ export default {
       }
     }
   }
+}
 </style>

@@ -105,7 +105,6 @@ export default {
     line-height: 22px;
     .container{
       ._top_footer{
-
         @apply flex justify-between items-start;
 
         >*{
@@ -122,6 +121,7 @@ export default {
             @apply flex gap-23px items-center;
           }
         }
+
         ._center{
           @apply grid grid-cols-2 gap-x-75px gap-y-20px p-0;
           grid-template-rows: repeat(4, max-content);
@@ -164,6 +164,7 @@ export default {
             }
           }
         }
+
         ._right{
           @apply flex flex-col gap-20px;
 
@@ -182,4 +183,52 @@ export default {
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  #footer{
+    .container{
+      ._top_footer{
+        @apply flex-col items-center;
+
+        >*{
+          @apply w-200px;
+        }
+
+        ._left{
+          @apply items-center;
+          svg{
+            @apply mb-0px w-full;
+          }
+          a{
+            @apply h-22px;
+            svg{
+              @apply h-full;
+            }
+          }
+        }
+
+        ._center{
+          @apply grid-cols-1 my-30px;
+          ._menu_item{
+            &.show {
+              ._submenu{
+                @apply mb-0px;
+              }
+            }
+          }
+        }
+
+        ._right {
+          span {
+            @apply items-center;
+          }
+        }
+      }
+
+      ._bottom_footer{
+        @apply flex-col items-center gap-15px;
+      }
+    }
+  }
+}
 </style>

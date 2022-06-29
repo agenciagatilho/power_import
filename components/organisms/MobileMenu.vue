@@ -4,7 +4,7 @@
       <v-image src="logo-header.svg" width="208px" height="35px" />
     </nuxt-link>
     <menu>
-      <div v-for="(item, index) in menu" :key="'header_'+index" class="_menu_item">
+      <div v-for="(item, index) in menu" :key="'header_'+index" class="_menu_item" @click="closeMenu">
         <nuxt-link v-if="item.url && !item.url.includes('http')" :to="item.url" :class="{'home': isHome(index)}">
           {{ item.text }}
         </nuxt-link>
@@ -26,6 +26,7 @@
 
 <script>
 import sitemap from '@/data/ptbr/sitemap.json'
+import { useMenuStore } from '@/store/menuState'
 export default {
   data () {
     return {
@@ -39,7 +40,8 @@ export default {
         sitemap.integrador,
         sitemap.plataforma,
         sitemap.faleComIntegrador
-      ]
+      ],
+      state: useMenuStore()
     }
   },
   methods: {
@@ -49,6 +51,11 @@ export default {
     openMenu (e) {
       const submenu = e.target.offsetParent
       submenu.classList.toggle('show')
+    },
+    closeMenu (e) {
+      if (e.target.localName === 'a') {
+        this.state.show = false
+      }
     }
   }
 }

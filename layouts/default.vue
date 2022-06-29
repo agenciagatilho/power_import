@@ -1,7 +1,7 @@
 <template>
-  <div id="body" :class="{'menu_active': menu}">
-    <Header @MobileMenu="state=>menu=state" />
-    <MobileMenu v-show="$device.isMobile" :class="{'show': menu}" />
+  <div id="body" :class="{'menu_active': show}">
+    <Header />
+    <MobileMenu v-show="$device.isMobile" :class="{'show': show}" />
     <Nuxt />
     <Footer />
   </div>
@@ -10,12 +10,18 @@
 <script>
 import footer from '@/data/ptbr/footer.json'
 import social from '@/data/ptbr/social_medias.json'
+import { useMenuStore } from '@/store/menuState'
 export default {
   data () {
     return {
       footer,
       social,
-      menu: false
+      state: useMenuStore()
+    }
+  },
+  computed: {
+    show () {
+      return this.state.show
     }
   }
 }

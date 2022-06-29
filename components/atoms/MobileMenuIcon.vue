@@ -1,5 +1,5 @@
 <template>
-  <div class="_mobile_menu_icon" :class="{'active': state}" @click="click">
+  <div class="_mobile_menu_icon" :class="{'active': show}" @click="click">
     <span />
     <span />
     <span />
@@ -7,16 +7,21 @@
 </template>
 
 <script>
+import { useMenuStore } from '@/store/menuState'
 export default {
   data () {
     return {
-      state: false
+      state: useMenuStore()
+    }
+  },
+  computed: {
+    show () {
+      return this.state.show
     }
   },
   methods: {
     click () {
-      this.state = !this.state
-      this.$emit('click', this.state)
+      this.state.show = !this.state.show
     }
   }
 }

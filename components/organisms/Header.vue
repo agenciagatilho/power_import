@@ -3,7 +3,7 @@
     <nuxt-link to="/">
       <v-image src="logo-header.svg" width="142px" height="24px" />
     </nuxt-link>
-    <MobileMenuIcon @click="state=>$emit('MobileMenu', state)" />
+    <MobileMenuIcon />
     <menu>
       <div v-for="(item, index) in menu" :key="'header_'+index" class="_menu_item">
         <nuxt-link v-if="item.url && !item.url.includes('http')" :to="item.url" :class="{'home': isHome(index)}">

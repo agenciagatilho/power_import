@@ -61,14 +61,14 @@
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
+// import VueSlickCarousel from 'vue-slick-carousel'
 import home from '@/data/ptbr/home.json'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   components: {
-    VueSlickCarousel
+    // VueSlickCarousel
   },
   data () {
     return {

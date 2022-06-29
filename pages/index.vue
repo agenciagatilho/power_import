@@ -6,12 +6,7 @@
         <h2>{{ home.soluctionsForSolarProducts.title }}</h2>
         <p>{{ home.soluctionsForSolarProducts.description }}</p>
       </div>
-      <component
-        v-bind="settingsMobile"
-        :is="$device.isMobile?'VueSlickCarousel':'div'"
-        ref="carousel"
-        class="_buttons"
-      >
+      <div v-if="!$device.isMobile" class="_buttons">
         <div
           v-for="(item, index) in home.soluctionsForSolarProducts.items"
           :key="index"
@@ -22,7 +17,19 @@
           <div class="_icon" :style="`--icon: url(${require('assets/svgs/icons/'+index+'.svg')});`" />
           <p>{{ item.text }}</p>
         </div>
-      </component>
+      </div>
+      <VueSlickCarousel v-else v-bind="settingsMobile" ref="carousel" class="_buttons">
+        <div
+          v-for="(item, index) in home.soluctionsForSolarProducts.items"
+          :key="index"
+          class="_item"
+          :class="{'active': currentSoluctionSelected === index}"
+          @click="setCurrentSoluction(index)"
+        >
+          <div class="_icon" :style="`--icon: url(${require('assets/svgs/icons/'+index+'.svg')});`" />
+          <p>{{ item.text }}</p>
+        </div>
+      </VueSlickCarousel>
       <span class="next_prev">
         <button class="_prev" @click="showPrev">
           <v-image src="prev.svg" height="17px" width="16px" />

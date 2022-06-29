@@ -1,0 +1,12 @@
+{
+  "banner": {
+    "title": "Fale com a Viener",
+    "description": "Preencha os seus dados e mande suas dúvidas para a Viener. Em breve um de nossos representantes entrará em contato."
+  },
+  "form": {
+    "cta": "Enviar"
+  },
+  "map": {
+    "title": "Onde estamos localizados"
+  }
+}

@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/rd/*"
+  to = "https://api.rd.services/:splat"
+  status = 200
+  force = true

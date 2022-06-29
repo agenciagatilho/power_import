@@ -1,0 +1,73 @@
+{
+  "banner": {
+    "title": "Distribuindo energia, gerando conexões.",
+    "description": "A Viener surgiu para unir forças em busca de soluções eficazes. Guiados pelo respeito e oferecendo apoio, olhamos para as necessidades dos clientes e para as oportunidades do mercado, antecipando problemas e prestando suporte ao longo das operações.",
+    "cta": {
+      "text": "Conheça a Viener",
+      "url": "quem_somos"
+    }
+  },
+  "soluctionsForSolarProducts": {
+    "title": "As melhores soluções para produção de energia solar.",
+    "description": "Encontre o kit certo para o seu projeto nas seguintes áreas.",
+    "items": {
+      "agro": {
+        "text": "Agro",
+        "url": "/"
+      },
+      "residencias": {
+        "text": "Residências",
+        "url": "/"
+      },
+      "industrias": {
+        "text": "Indústrias",
+        "url": "/"
+      },
+      "comercios": {
+        "text": "Comércios",
+        "url": "/"
+      },
+      "usinas": {
+        "text": "Usinas",
+        "url": "/"
+      }
+    }
+  },
+  "thoughtsTomorrow": {
+    "title": "Pensamos no amanhã",
+    "description": "Trabalhamos com energias renováveis, levando às pessoas uma fonte inesgotável de benefícios e ajudando a construir um futuro melhor e mais sustentável ao entregar vantagens para o meio ambiente, para a economia e para as pessoas.",
+    "cta": {
+      "text": "Conheça nossas soluções",
+      "url": "/"
+    }
+  },
+  "partnershipForSecurity": {
+    "title": "Parceria que gera segurança",
+    "description": "Levamos segurança às pessoas através da excelência dos nossos serviços e produtos, olhando para cada situação de forma única. Oferecemos suporte especializado ao longo das operações, descomplicando processos e entregando soluções eficazes.",
+    "cta": {
+      "text": "Conheça nossos produtos",
+      "url": "/"
+    }
+  },
+  "renewableEnergy": {
+    "title": "Tudo que você precisa saber sobre energias renováveis.",
+    "description": "Aqui você encontra informações, tendências, oportunidades e novidades sobre o mercado de energias renováveis.",
+    "cta": {
+      "text": "Confira agora",
+      "url": "/"
+    }
+  },
+  "supportConnectionPoints": {
+    "title": "Apoio em todos os pontos de conexão",
+    "description": "vEntre em contato com a nossa equipe, tire suas dúvidas sobre nossa atuação e gere economia na sua conta de luz com energias renováveis.",
+    "cta": {
+      "text": "Fale com a nossa equipe",
+      "url": "/"
+    }
+  },
+  "newsletter": {
+    "title": "Receba novidades de energias renováveis",
+    "description": "Assine nossa newsletter e fique por dentro das ofertas e produtos da Viener.",
+    "cta": "Enviar"
+  }
+}

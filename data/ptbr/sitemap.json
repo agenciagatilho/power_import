@@ -1,0 +1,59 @@
+{
+  "home": {
+    "text": "Home",
+    "url": "/"
+  },
+  "quemSomos": {
+    "text": "Quem somos",
+    "url": "/quemsomos"
+  },
+  "energiasRenovaveis": {
+    "text": "Energias renováveis",
+    "url": "/energiasrenovaveis"
+  },
+  "equipamentos": {
+    "text": "Equipamentos",
+    "submenu": {
+      "inversores": {
+        "text": "Inversores",
+        "url": "/equipamentos/inversores"
+      },
+      "materiaisdeprotecao": {
+        "text": "Inversores",
+        "url": "/equipamentos/materiaisdeprotecao"
+      },
+      "modulos": {
+        "text": "Módulos",
+        "url": "/equipamentos/modulos"
+      },
+      "outrosmateriais": {
+        "text": "Outros materiais",
+        "url": "/equipamentos/outrosmateriais"
+      }
+    }
+  },
+  "simulador": {
+    "text": "Simulador",
+    "url": "/simulador"
+  },
+  "blog": {
+    "text": "Blog",
+    "url": "/blog"
+  },
+  "integrador": {
+    "text": "Integrador",
+    "url": "/integrador"
+  },
+  "contato": {
+    "text": "Contato",
+    "url": "/contato"
+  },
+  "plataforma": {
+    "text": "Acessar plataforma",
+    "url": "https://plataforma.viener.com.br/login"
+  },
+  "faleComIntegrador": {
+    "text": "Fale com um integrador",
+    "url": "/falecomintegrador"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "banner": {
+    "title": "Sustentabilidade e efetividade",
+    "description": "Somos uma marca inovadora, pois identificamos oportunidades e conectamos soluções sustentáveis e efetivas.<br><br>Estamos atentos às necessidades de quem faz parte da nossa marca. Inovamos com a realização de processos estratégicos, explorando possibilidades e oferecendo qualidade em cada serviço prestado."
+  },
+  "renewableEnergy": {
+    "title": "Energias Renováveis",
+    "description": "As energias renováveis provêm de recursos naturalmente reabastecidos, contribuindo para a sustentabilidade e entregando o melhor custo-benefício.",
+    "items": [
+      {
+        "image": "economy",
+        "title": "Economia",
+        "description": "Redução de até 95% na conta de luz e baixa manutenção dos sistemas."
+      },
+      {
+        "image": "sustentability",
+        "title": "Sustentabilidade",
+        "description": "Sem impacto ambiental. Energia limpa não causa danos à natureza."
+      },
+      {
+        "image": "credits",
+        "title": "Geração de crédito de energia",
+        "description": "A energia gerada por sua unidade e não utilizada pode ser revertida em crédito, retornando para a concessionária da sua região."
+      }
+    ]
+  },
+  "ourSolutions": {
+    "title": "Nossas soluções",
+    "subtitle": "Energia solar",
+    "description": "A energia solar é gerada a partir da luz do sol, produzindo eletricidade por meio de painéis fotovoltaicos ou aquecimento térmico transformado em eletricidade a partir de um inversor. Esses modelos possuem garantia de vida útil de mais de 25 anos e geram uma economia de até 95% na conta de energia.<br><br>Com a produção própria de energia solar, casas, indústrias, comércios e o agronegócio conseguem se tornar mais sustentáveis e garantem um rápido retorno sobre o investimento feito. Atualmente, a energia solar fotovoltaica é uma das melhores opções para economizar e lucrar no médio e longo prazo."
+  },
+  "equipment": {
+    "title": "Equipamentos",
+    "description": "Conheça mais sobre nossos produtos e kits e monte o sistema certo para sua necessidade. ",
+    "cta": {
+      "text": "Acesse agora",
+      "url": "/"
+    }
+  },
+  "callToAction": {
+    "title": "Quer saber mais sobre energia solar?",
+    "description": "Entre em contato com a Viener e entenda como podemos trabalhar juntos para melhorar a sua produção de energia.",
+    "cta": {
+      "text": "Entre em contato",
+      "url": "contato"
+    }
+  }
+}

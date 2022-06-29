@@ -16,11 +16,11 @@ export default {
     },
     width: {
       type: String,
-      default: 'auto'
+      default: '100%'
     },
     height: {
       type: String,
-      default: 'auto'
+      default: '100%'
     },
     mobWidth: {
       type: String,

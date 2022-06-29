@@ -34,7 +34,7 @@ h3 {
   font-size: 28px;
   line-height: 32px;
 }
-button, .default_button{
+button:not(.not), .default_button{
   @apply px-25px py-7px rounded-15px
          bg-$primary w-max
          font-bold text-$text-light;

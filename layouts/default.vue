@@ -1,5 +1,5 @@
 <template>
-  <div id="body">
+  <div id="body" :class="{'menu_active': menu}">
     <Header @MobileMenu="state=>menu=state" />
     <MobileMenu v-if="$device.isMobile" :class="{'show': menu}" />
     <Nuxt />
@@ -29,6 +29,12 @@ export default {
   @media screen and (max-width: 768px) {
     #body{
       @apply gap-50px relative;
+
+      &.menu_active{
+        ._mobile_menu_icon{
+          @apply fixed z-999 right-6vw;
+        }
+      }
     }
   }
 </style>

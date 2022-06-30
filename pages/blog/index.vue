@@ -38,41 +38,41 @@ export default {
         { property: 'twitter:description', content: 'Aqui você encontra informações, tendências, oportunidades e novidades sobre o mercado de energias renováveis.' }
       ]
     }
+  },
+  mounted () {
+    const basePosts = require('@/data/blog.json')
+    const blogPosts = []
+
+    basePosts.forEach((item) => {
+      const image = item._links['wp:featuredmedia'][0]
+      blogPosts.push({
+        image: image.href,
+        title: item.title.rendered,
+        description: item.content.rendered,
+        link: item.link
+      })
+    })
+
+    blogPosts.map(async (item) => {
+      const baseImage = item.image
+      const finalImage = await (await fetch(baseImage, { method: 'GET' })).json()
+      return {
+        ...item,
+        image: finalImage
+      }
+    })
+    for (let i = 0; i < blogPosts.length; i++) {
+      const item = blogPosts[i];
+      (async () => {
+        const baseImage = item.image
+        const finalImage = await (await fetch(baseImage, { method: 'GET' })).json()
+        item.image = finalImage.media_details.sizes.medium
+          ? finalImage.media_details.sizes.medium.source_url
+          : finalImage.guid.rendered
+      })()
+    }
+    this.blogPosts = blogPosts.slice(0, 9)
   }
-  // created () {
-  //   const basePosts = require('@/data/blog.json')
-  //   const blogPosts = []
-
-  //   basePosts.forEach((item) => {
-  //     const image = item._links['wp:featuredmedia'][0]
-  //     blogPosts.push({
-  //       image: image.href,
-  //       title: item.title.rendered,
-  //       description: item.content.rendered,
-  //       link: item.link
-  //     })
-  //   })
-
-  //   blogPosts.map(async (item) => {
-  //     const baseImage = item.image
-  //     const finalImage = await (await fetch(baseImage, { method: 'GET' })).json()
-  //     return {
-  //       ...item,
-  //       image: finalImage
-  //     }
-  //   })
-  //   for (let i = 0; i < blogPosts.length; i++) {
-  //     const item = blogPosts[i];
-  //     (async () => {
-  //       const baseImage = item.image
-  //       const finalImage = await (await fetch(baseImage, { method: 'GET' })).json()
-  //       item.image = finalImage.media_details.sizes.medium
-  //         ? finalImage.media_details.sizes.medium.source_url
-  //         : finalImage.guid.rendered
-  //     })()
-  //   }
-  //   this.blogPosts = blogPosts.slice(0, 9)
-  // }
 }
 </script>
 

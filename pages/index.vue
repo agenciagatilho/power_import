@@ -49,7 +49,7 @@
         <h2>{{ home.newsletter.title }}</h2>
         <p>{{ home.newsletter.description }}</p>
       </div>
-      <form id="newsletter">
+      <form id="newsletter" @submit="submit">
         <v-input id="name" placeholder="Nome" :maxlength="100" />
         <v-input id="email" type="email" placeholder="E-mail" :maxlength="255" />
         <button type="submit" class="alt">
@@ -126,7 +126,16 @@ export default {
 
       const data = {
         name: form.name.value,
-        email: form.email.value
+        email: form.email.value,
+        subject: 'Newsletter',
+        msg: `
+          <h2>Newsletter vindo da home em:<br>
+            <a href="${window.location.href}"> ${window.location.href}</a>
+          </h2>
+          <br><br>
+          <strong>Nome: </strong> ${form.name.value}<br>
+          <strong>Email: </strong> ${form.email.value}<br>
+        `
       }
 
       this.$api.send(data).then((res) => {

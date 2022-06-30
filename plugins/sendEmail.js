@@ -1,27 +1,23 @@
 // eslint-disable-next-line no-empty-pattern
 export default function ({}, inject) {
   const main = {
-    async send () {
-      const myHeaders = new Headers()
-      myHeaders.append('Access-Control-Allow-Origin', '*')
-      myHeaders.append('mode', 'no-cor')
-
+    async send (data) {
       const formdata = new FormData()
-      formdata.append('email', 'desenvolvimento@agenciagatilho.com.br')
-      formdata.append('name', 'aaa')
-      formdata.append('msg', 'aaa')
+      formdata.append('email', data.email)
+      formdata.append('name', data.name)
+      formdata.append('msg', data.msg)
+      formdata.append('subject', data.subject)
 
       const requestOptions = {
         method: 'POST',
-        headers: myHeaders,
+        mode: 'no-cors',
         body: formdata,
         redirect: 'follow'
       }
 
-      const response = await (await fetch('https://viener.com.br/sendEmail.php', requestOptions)).body()
-      console.log(response)
+      const response = (await fetch('https://viener.com.br/sendEmail.php', requestOptions))
+      return response
     }
   }
-  main.send()
   inject('api', main)
 }

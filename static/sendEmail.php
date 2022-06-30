@@ -1,8 +1,7 @@
 <?php
-  require_once('PHPMailer_5.2.1/class.phpmailer.php'); /* classe PHPMailer */
+  require_once('PHPMailer_5.2.1/class.phpmailer.php');
 
-  /* Recebe os dados do cliente ajax via POST */
-  $nome = $_POST['nome'];
+  $name = $_POST['name'];
   $email = $_POST['email'];
   $msg = $_POST['msg'];
   $subject = $_POST['subject'];
@@ -21,9 +20,9 @@
 
   $mail->IsSendmail();
 
-  $mail->AddReplyTo($email, $nome);
+  $mail->AddReplyTo($email, $name);
   $mail->From = $email;
-  $mail->FromName   = $nome;
+  $mail->FromName   = $name;
 
   $to = "stmp@viener.com.br";
   $mail->AddAddress($to);

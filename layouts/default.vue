@@ -4,6 +4,7 @@
     <MobileMenu v-show="$device.isMobile" :class="{'show': show}" />
     <Nuxt />
     <Footer />
+    <BaseToast />
   </div>
 </template>
 
@@ -30,6 +31,9 @@ export default {
 <style lang="scss">
   #body{
     @apply flex flex-col gap-75px;
+  }
+  #toasts{
+    @apply top-0 left-1/2;
   }
 
   @media screen and (max-width: 768px) {

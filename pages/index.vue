@@ -65,6 +65,7 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import home from '@/data/ptbr/home.json'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import { useToastStore } from '@/store/toastState'
 
 export default {
   components: {
@@ -72,6 +73,7 @@ export default {
   },
   data () {
     return {
+      toast: useToastStore(),
       home,
       banner_background: {
         src: 'images/banner_home.png',
@@ -139,9 +141,7 @@ export default {
       }
 
       this.$api.send(data).then((res) => {
-        if (res.ok) {
-          window.alert('Newsletter Assinado')
-        }
+        this.toast.showToast('Formulário enviado com sucesso')
       })
     }
   }

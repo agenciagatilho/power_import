@@ -36,6 +36,8 @@ export default {
   data () {
     return {
       settingsDesktop: {
+        arrows: false,
+        dots: false,
         centerMode: true,
         centerPadding: '20px',
         focusOnSelect: true,

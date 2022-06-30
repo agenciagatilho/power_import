@@ -1,6 +1,6 @@
 <template>
   <div class="_masked_background">
-    <div :style="`--mask: url('mask-background.png'); --color: ${color};`" height="600px" class="_mask" />
+    <div :style="`--color: ${color};`" height="600px" class="_mask" />
     <v-image :src="src" width="1920px" height="600px" />
   </div>
 </template>
@@ -32,12 +32,12 @@ export default {
       @apply absolute top-0 left-0 z-1
              w-full h-full bg-$color;
 
-      mask-image: var(--mask);
+      mask-image: url('/mask-background.png');
       mask-repeat: no-repeat;
       mask-position: left center;
       mask-size: cover;
 
-      -webkit-mask-image: var(--mask);
+      -webkit-mask-image: url('/mask-background.png');
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: left center;
       -webkit-mask-size: cover;
@@ -49,6 +49,8 @@ export default {
     ._mask{
       mask-position: 45%;
       -webkit-mask-position: 45%;
+      mask-image: url('/mask-background-mobile.png');
+      -webkit-mask-image: url('/mask-background-mobile.png');
     }
   }
 }

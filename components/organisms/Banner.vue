@@ -51,7 +51,7 @@ export default {
         @apply max-w-470px;
       }
       .default_button{
-        @apply px-40px w-full;
+        @apply px-30px mx-auto;
       }
     }
   }

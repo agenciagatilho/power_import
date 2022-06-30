@@ -3,84 +3,146 @@
     class="input-box"
     :id="'span_input_' + id"
   >
-    <label :for="id">{{ placeholder }}</label>
-    <textarea
-      v-if="type === 'textarea'"
+    <label :for="id">
+      {{placeholder}}
+    </label>
+    <component
+      :is="is(type)"
       :id="id"
-      :value="masked"
       :type="type"
-      :name="id"
       :placeholder="placeholder"
-      :required="required"
-      @input="e=>value = e.target.value"
-      :maxlength="maxlength"
-      cols="30"
-      :rows="rows"
-    />
-    <input
-      v-else
-      :id="id"
-      :value="masked"
-      :type="type"
       :name="id"
-      :placeholder="placeholder"
       :required="required"
-      @input="e=>value = e.target.value"
+      :autofocus="autofocus"
       :maxlength="maxlength"
       :minlength="minlength"
-    >
+      :pattern="pattern"
+      :readonly="readonly"
+      :disabled="disabled"
+      :autocomplete="autocomplete"
+      :autocorrect="autocorrect"
+      :autocapitalize="autocapitalize"
+      :spellcheck="spellcheck"
+      :autosize="autosize"
+      :rows="rows"
+      :cols="cols"
+      :title="patternMessage"
+      :list="list"
+      @input="masked"
+      @change="change"
+    />
   </span>
 </template>
 
 <script>
-
 export default {
   props: {
-    id: {
-      type: String,
-      required: true
-    },
-    placeholder: {
-      type: String,
-      required: true
-    },
     type: {
       type: String,
       default: 'text'
     },
+    placeholder: {
+      type: String,
+      default: 'Test'
+    },
+    value: {
+      type: String,
+      default: null
+    },
+    id: {
+      type: String,
+      required: true
+    },
     required: {
+      type: Boolean,
+      default: true
+    },
+    autofocus: {
       type: Boolean,
       default: false
     },
     maxlength: {
       type: Number,
-      default: 100
+      default: null
     },
     minlength: {
       type: Number,
-      default: 1
+      default: null
+    },
+    pattern: {
+      type: String,
+      default: null
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    autocomplete: {
+      type: String,
+      default: null
+    },
+    autocorrect: {
+      type: String,
+      default: null
+    },
+    autocapitalize: {
+      type: String,
+      default: null
+    },
+    spellcheck: {
+      type: Boolean,
+      default: null
+    },
+    autosize: {
+      type: Boolean,
+      default: false
     },
     rows: {
       type: Number,
-      default: 10
+      default: null
+    },
+    cols: {
+      type: Number,
+      default: null
+    },
+    patternMessage: {
+      type: String,
+      default: null
     },
     mask: {
       type: String,
-      default: ''
+      default: null
+    },
+    list: {
+      type: String,
+      default: null
     }
   },
   data () {
     return {
-      value: ''
+      data_value: this.value || ''
     }
   },
-  computed: {
-    masked () {
+  methods: {
+    is (type) {
+      switch (type) {
+        case 'select': return 'select'
+        case 'textarea': return 'textarea'
+        default: return 'input'
+      }
+    },
+    masked (e) {
       const mask = this.mask
+      const value = e.target.value.replace(/\D/g, '')
       if (mask) {
         let i = 0; let m = 1
         const mountValues = []
         const regex = []
+
         mask.split('').forEach((item, index) => {
           if (item === '#') {
             i++
@@ -100,10 +162,26 @@ export default {
             }
           }
         })
-        return this.value.replace(new RegExp(regex.join('')), mountValues.join(''))
-      }
 
-      return this.value
+        let elementIndex = 0
+        for (let i = 0; i < regex.length; i++) {
+          elementIndex += parseInt(regex[i].replace(/[^1-9]/g, ''))
+
+          if (value.length === elementIndex + 1) {
+            const element = regex.splice(0, i + 1).join('').replaceAll('{', '{0,')
+            const mask = mountValues.join('').split('$').splice(0, i + 2).join('$')
+
+            e.target.value = e.target.value.replace(/[\D]/g, '').replace(new RegExp(element), mask)
+          }
+        }
+        this.callback(e)
+      }
+    },
+    callback (e) {
+      this.$emit('input', e)
+    },
+    change (e) {
+      this.$emit('change', e)
     }
   }
 }

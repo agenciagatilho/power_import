@@ -70,6 +70,7 @@ export default {
   plugins: [
     { src: '~/plugins/GMT.js', mode: 'client' },
     { src: '~/plugins/sendEmail.js', mode: 'client' },
+    { src: '~/plugins/getCities.js', mode: 'client' },
     { src: '~/plugins/pinia.js' }
   ],
 

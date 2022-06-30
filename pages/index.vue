@@ -128,6 +128,10 @@ export default {
 #home {
   @apply flex flex-col gap-75px;
 
+  a{
+    @apply hidden;
+  }
+
   .soluctionsForSolarProducts{
     @apply bg-$text py-50px -mt-75px;
     >*{

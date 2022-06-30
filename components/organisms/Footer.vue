@@ -123,11 +123,15 @@ export default {
         }
 
         ._center{
-          @apply grid grid-cols-2 gap-x-75px gap-y-20px p-0;
+          // Somente Home
+          @apply h-0 mt-50px;
+          // @apply grid grid-cols-2 gap-x-75px gap-y-20px p-0;
           grid-template-rows: repeat(4, max-content);
 
           ._menu_item{
             @apply flex flex-col relative;
+            // Somente Home
+            @apply hidden;
 
             a,p {
               @apply font-normal cursor-pointer
@@ -210,12 +214,8 @@ export default {
 
         ._center{
           // @apply grid-cols-1 my-50px gap-10px;
-          // Somente Home
-          @apply h-0 mt-50px;
           ._menu_item{
             @apply items-center;
-            // Somente Home
-            @apply hidden;
             &.show {
               ._submenu{
                 @apply mb-0px;

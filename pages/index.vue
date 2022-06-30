@@ -40,9 +40,9 @@
       </span>
     </v-container>
     <GridTwoImageWithTextAndCta :item="home.thoughtsTomorrow" image="images/young-man-working-at-renewable-energy-farm-eco.png" />
-    <FullscreenLinearText :item="home.partnershipForSecurity" image="images/background-linear-home.png" color="#ED7220CC" />
-    <FullscreenLinearText class="_renewable_energy" :item="home.renewableEnergy" color="#ffffff" text="#2E4739" />
-    <GridTwoImageWithTextAndCta class="_support_connection_points" :item="home.supportConnectionPoints" image="images/sungrow_3.png" />
+    <!-- <FullscreenLinearText :item="home.partnershipForSecurity" image="images/background-linear-home.png" color="#ED7220CC" /> -->
+    <!-- <FullscreenLinearText class="_renewable_energy" :item="home.renewableEnergy" color="#ffffff" text="#2E4739" /> -->
+    <!-- <GridTwoImageWithTextAndCta class="_support_connection_points" :item="home.supportConnectionPoints" image="images/sungrow_3.png" /> -->
 
     <v-container class="newsletter_section">
       <div class="_text">

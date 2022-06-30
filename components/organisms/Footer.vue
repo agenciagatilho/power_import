@@ -196,7 +196,7 @@ export default {
         }
 
         ._left{
-          @apply items-center;
+          @apply items-center gap-10px;
           svg{
             @apply mb-0px w-full;
           }
@@ -209,9 +209,13 @@ export default {
         }
 
         ._center{
-          @apply grid-cols-1 my-30px;
+          // @apply grid-cols-1 my-50px gap-10px;
+          // Somente Home
+          @apply h-0 mt-50px;
           ._menu_item{
             @apply items-center;
+            // Somente Home
+            @apply hidden;
             &.show {
               ._submenu{
                 @apply mb-0px;
@@ -221,8 +225,12 @@ export default {
         }
 
         ._right {
+          @apply gap-10px;
           span {
-            @apply items-center;
+            svg{
+              @apply hidden;
+            }
+            @apply items-center grid-cols-1;
           }
         }
       }

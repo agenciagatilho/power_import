@@ -26,7 +26,7 @@ export default {
            h-full w-full;
     img{
       @apply absolute top-0 left-0
-             w-full h-full;
+             w-full h-full object-right object-cover;
     }
     ._mask{
       @apply absolute top-0 left-0 z-1

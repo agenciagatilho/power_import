@@ -119,6 +119,21 @@ export default {
     },
     showPrev () {
       this.$refs.carousel.prev()
+    },
+    submit (e) {
+      e.preventDefault()
+      const form = e.target
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value
+      }
+
+      this.$api.send(data).then((res) => {
+        if (res.ok) {
+          window.alert('Newsletter Assinado')
+        }
+      })
     }
   }
 }
@@ -202,6 +217,9 @@ export default {
       ._text{
         @apply max-w-460px flex flex-col gap-30px;
 
+        h2{
+          @apply -mt-8px;
+        }
         p{
           @apply max-w-320px;
         }

@@ -2,7 +2,9 @@
   <v-container element="footer" id="footer">
     <span class="_top_footer">
       <div class="_left">
-        <v-image src="logo-footer.svg" width="377px" />
+        <nuxt-link to="/">
+          <v-image src="logo-footer.svg" width="377px" />
+        </nuxt-link>
         <p>{{ footer.social_media }}</p>
         <span>
           <a :href="media.facebook" target="_blank" rel="noopener noreferrer">

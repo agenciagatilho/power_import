@@ -142,6 +142,7 @@ export default {
           @apply flex flex-col items-center justify-center gap-18px
                  rounded-18px border-2px px-15px pt-20px pb-15px cursor-pointer
                  border-$secondary;
+          transition: all 0.15s ease-in-out;
 
           ._icon{
             @apply w-90px h-90px;
@@ -158,7 +159,7 @@ export default {
             -webkit-mask-size: contain;
           }
 
-          &.active{
+          &:hover{
              @apply bg-$secondary;
             ._icon{
               background-color: var(--text-light);

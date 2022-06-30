@@ -70,20 +70,20 @@
 <script>
 import media from '@/data/ptbr/social_medias.json'
 import footer from '@/data/ptbr/footer.json'
-// import sitemap from '@/data/ptbr/sitemap.json'
+import sitemap from '@/data/ptbr/sitemap.json'
 export default {
   data () {
     return {
       media,
       footer,
       menu: [
-        // sitemap.home,
-        // sitemap.blog,
-        // sitemap.quemSomos,
-        // sitemap.integrador,
-        // sitemap.energiasRenovaveis,
-        // sitemap.simulador,
-        // sitemap.equipamentos
+        sitemap.home,
+        sitemap.blog,
+        sitemap.quemSomos,
+        sitemap.integrador,
+        sitemap.energiasRenovaveis,
+        sitemap.simulador,
+        sitemap.equipamentos
       ]
     }
   },
@@ -208,7 +208,7 @@ export default {
         }
 
         ._center{
-          @apply grid-cols-1 my-30px h-0;
+          @apply grid-cols-1 my-30px;
           ._menu_item{
             &.show {
               ._submenu{

@@ -208,7 +208,7 @@ export default {
         }
 
         ._center{
-          @apply grid-cols-1 my-30px;
+          @apply grid-cols-1 my-30px h-0;
           ._menu_item{
             &.show {
               ._submenu{

@@ -187,6 +187,7 @@ export default {
 @media screen and (max-width: 768px) {
   #footer{
     .container{
+      @apply text-center;
       ._top_footer{
         @apply flex-col items-center;
 
@@ -210,6 +211,7 @@ export default {
         ._center{
           @apply grid-cols-1 my-30px;
           ._menu_item{
+            @apply items-center;
             &.show {
               ._submenu{
                 @apply mb-0px;

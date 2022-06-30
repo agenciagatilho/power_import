@@ -32,12 +32,12 @@ export default {
       @apply absolute top-0 left-0 z-1
              w-full h-full bg-$color;
 
-      mask-image: url('/mask-background.png');
+      mask-image: url('/mask-background.svg');
       mask-repeat: no-repeat;
       mask-position: left center;
       mask-size: cover;
 
-      -webkit-mask-image: url('/mask-background.png');
+      -webkit-mask-image: url('/mask-background.svg');
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: left center;
       -webkit-mask-size: cover;
@@ -49,8 +49,8 @@ export default {
     ._mask{
       mask-position: 45%;
       -webkit-mask-position: 45%;
-      mask-image: url('/mask-background-mobile.png');
-      -webkit-mask-image: url('/mask-background-mobile.png');
+      mask-image: url('/mask-background-mobile.svg');
+      -webkit-mask-image: url('/mask-background-mobile.svg');
     }
   }
 }

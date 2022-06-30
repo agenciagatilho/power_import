@@ -62,14 +62,13 @@ export default {
       }
     })
     for (let i = 0; i < blogPosts.length; i++) {
-      const item = blogPosts[i];
-      (async () => {
-        const baseImage = item.image
-        const finalImage = await (await fetch(baseImage, { method: 'GET' })).json()
+      const item = blogPosts[i]
+      const baseImage = item.image
+      fetch(baseImage, { method: 'GET' }).then(r => r.json().then((finalImage) => {
         item.image = finalImage.media_details.sizes.medium
           ? finalImage.media_details.sizes.medium.source_url
           : finalImage.guid.rendered
-      })()
+      }))
     }
     this.blogPosts = blogPosts.slice(0, 9)
   }

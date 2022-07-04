@@ -4,7 +4,7 @@
       {{ category }}
     </h3>
     <div v-if="!$device.isMobile" class="_items">
-      <nuxt-link
+      <div
         v-for="item in computedItems"
         :key="item.title"
         :to="getLink(item)"
@@ -12,11 +12,11 @@
       >
         <img :src="item.image.src" :alt="item.image.alt">
         <p>{{ item.title }}</p>
-      </nuxt-link>
+      </div>
     </div>
 
     <MobileCarousel v-else-if="computedItemsInDesktop" class="_items">
-      <nuxt-link
+      <div
         v-for="item in computedItemsInDesktop"
         :key="item.title"
         :to="getLink(item)"
@@ -24,7 +24,7 @@
       >
         <img :src="item.image.src" :alt="item.image.alt">
         <p>{{ item.title }}</p>
-      </nuxt-link>
+      </div>
     </MobileCarousel>
 
     <section v-if="pagination.length > 1" class="_pagination">

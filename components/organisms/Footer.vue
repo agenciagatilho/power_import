@@ -80,12 +80,12 @@ export default {
       footer,
       menu: [
         sitemap.home,
-        sitemap.blog,
+        // sitemap.blog,
         sitemap.quemSomos,
         sitemap.integrador,
         sitemap.contato,
         sitemap.energiasRenovaveis,
-        sitemap.simulador,
+        // sitemap.simulador,
         sitemap.equipamentos
       ]
     }
@@ -162,7 +162,7 @@ export default {
                 @apply rotate-180 mt-0px;
               }
               ._submenu{
-                @apply relative scale-y-100 opacity-100 pointer-events-auto -mb-60px;
+                @apply relative scale-y-100 opacity-100 pointer-events-auto -mb-60px -mr-100px;
               }
             }
           }

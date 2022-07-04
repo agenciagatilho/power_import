@@ -20,7 +20,7 @@
       <a
         v-for="item in computedItemsInDesktop"
         :key="item.title"
-        :to="getLink(item)"
+        :href="getLink(item)"
         target="_blank"
         class="_item"
       >

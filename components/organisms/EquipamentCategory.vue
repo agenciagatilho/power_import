@@ -4,27 +4,29 @@
       {{ category }}
     </h3>
     <div v-if="!$device.isMobile" class="_items">
-      <div
+      <a
         v-for="item in computedItems"
         :key="item.title"
-        :to="getLink(item)"
+        :href="getLink(item)"
+        target="_blank"
         class="_item"
       >
         <img :src="item.image.src" :alt="item.image.alt">
         <p>{{ item.title }}</p>
-      </div>
+      </a>
     </div>
 
     <MobileCarousel v-else-if="computedItemsInDesktop" class="_items">
-      <div
+      <a
         v-for="item in computedItemsInDesktop"
         :key="item.title"
         :to="getLink(item)"
+        target="_blank"
         class="_item"
       >
         <img :src="item.image.src" :alt="item.image.alt">
         <p>{{ item.title }}</p>
-      </div>
+      </a>
     </MobileCarousel>
 
     <section v-if="pagination.length > 1" class="_pagination">
@@ -99,8 +101,9 @@ export default {
   },
   methods: {
     getLink (item) {
-      const category = item.category.toLowerCase()
-      return `/equipamentos/${category}/${item.slug}`
+      // const category = item.category.toLowerCase()
+      // return `/equipamentos/${category}/${item.slug}`
+      return 'https://plataforma.viener.com.br/login'
     },
     setPage (index) {
       this.queryPage = index

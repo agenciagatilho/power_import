@@ -1,7 +1,7 @@
 <template>
   <main id="energiasrenovaveis">
     <Banner :item="energiasrenovaveis.banner" :background="banner_background" />
-    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.renewableEnergy" image="images/zac-durant.png" />
+    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.renewableEnergy" image="/images/zac-durant.png" />
     <v-container class="_renewableEnergyItems">
       <component
         :is="$device.isMobile? 'VueSlickCarousel': 'div'"
@@ -27,8 +27,8 @@
         </button>
       </span>
     </v-container>
-    <GridTwoImageWithTextAndCta class="our_soluctions" :item="energiasrenovaveis.ourSolutions" image="images/sungrow_1.png" />
-    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.equipment" image="images/sun_painel.png" />
+    <GridTwoImageWithTextAndCta class="our_soluctions" :item="energiasrenovaveis.ourSolutions" image="/images/sungrow_1.png" />
+    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.equipment" image="/images/sun_painel.png" />
     <FullscreenLinearText :item="energiasrenovaveis.callToAction" color="#5EA756" />
   </main>
 </template>

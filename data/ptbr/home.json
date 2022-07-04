@@ -4,7 +4,7 @@
     "description": "A Viener surgiu para unir forças em busca de soluções eficazes. Guiados pelo respeito e oferecendo apoio, olhamos para as necessidades dos clientes e para as oportunidades do mercado, antecipando problemas e prestando suporte ao longo das operações.",
     "cta": {
       "text": "Conheça a Viener",
-      "url": "/"
+      "url": "/quemsomos"
     }
   },
   "soluctionsForSolarProducts": {
@@ -38,7 +38,7 @@
     "description": "Trabalhamos com energias renováveis, levando às pessoas uma fonte inesgotável de benefícios e ajudando a construir um futuro melhor e mais sustentável ao entregar vantagens para o meio ambiente, para a economia e para as pessoas.",
     "cta": {
       "text": "Conheça nossas soluções",
-      "url": "/"
+      "url": "/energiasrenovaveis"
     }
   },
   "partnershipForSecurity": {
@@ -46,7 +46,7 @@
     "description": "Levamos segurança às pessoas através da excelência dos nossos serviços e produtos, olhando para cada situação de forma única. Oferecemos suporte especializado ao longo das operações, descomplicando processos e entregando soluções eficazes.",
     "cta": {
       "text": "Conheça nossos produtos",
-      "url": "/"
+      "url": "/equipamentos/inversores"
     }
   },
   "renewableEnergy": {
@@ -54,7 +54,7 @@
     "description": "Aqui você encontra informações, tendências, oportunidades e novidades sobre o mercado de energias renováveis.",
     "cta": {
       "text": "Confira agora",
-      "url": "/"
+      "url": "/blog"
     }
   },
   "supportConnectionPoints": {
@@ -62,7 +62,7 @@
     "description": "Entre em contato com a nossa equipe, tire suas dúvidas sobre nossa atuação e gere economia na sua conta de luz com energias renováveis.",
     "cta": {
       "text": "Fale com a nossa equipe",
-      "url": "/"
+      "url": "/contato"
     }
   },
   "newsletter": {

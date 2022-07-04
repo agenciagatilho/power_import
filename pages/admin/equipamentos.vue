@@ -175,6 +175,10 @@ export default {
           src: url,
           alt: response.metadata.name.split('.')[0]
         }
+
+        if (dataState === 'imageState') {
+          document.querySelector('#title').value = response.metadata.name.split('.')[0] + '.'
+        }
       })
     },
     submit (e) {
@@ -227,7 +231,7 @@ export default {
     },
     changeSlug (e) {
       const title = e.target.value
-      document.querySelector('#slug').value = title.toLowerCase()
+      document.querySelector('#slug').value = title.toLowerCase().replaceAll(' ', '_')
     }
   }
 }
@@ -317,10 +321,10 @@ export default {
           @apply border-3px border-$secondary rounded-19px
                 pt-35px pb-15px
                 grid grid-cols-1 gap-10px;
-          grid-template-rows: 115px 24px;
+          grid-template-rows: 115px 1fr;
 
           img{
-            @apply h-full object-cover mb-40px;
+            @apply h-full object-cover mb-40px mx-auto;
           }
 
           p {

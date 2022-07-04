@@ -47,4 +47,17 @@ export default {
       @apply absolute w-full h-full top-0 left-0 -z-1;
     }
   }
+
+@media screen {
+  ._fullscreen_linear_text{
+    .container {
+      h2{
+        @apply px-20px;
+      }
+      p{
+        @apply px-40px;
+      }
+    }
+  }
+}
 </style>

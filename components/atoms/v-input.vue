@@ -31,6 +31,7 @@
       @input="masked"
       @change="change"
     >
+      <option v-if="options" value="" hidden selected disabled>Selecione um {{placeholder}}</option>
       <option v-for="option in options" :key="option.name" :value="option.name" v-text="option.title" />
     </component>
   </span>

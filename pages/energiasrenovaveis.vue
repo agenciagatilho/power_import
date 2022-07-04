@@ -103,9 +103,28 @@ export default {
             @apply w-355px h-402px rounded-3px pt-30px px-40px
                   border-3px rounded-19px border-$secondary
                   flex flex-col items-center text-center gap-30px;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+              @apply bg-$secondary text-$text-light;
+              svg *{
+                @apply fill-$text-light;
+              }
+            }
+          }
+          .slick-current{
+            ._item{
+              @apply bg-$secondary text-$text-light;
+              svg *{
+                @apply fill-$text-light;
+              }
+            }
           }
         }
       }
+    }
+    .next_prev {
+      @apply hidden;
     }
 
     ._grid_two_image_with_text_and_cta:not(.our_soluctions){

@@ -2,7 +2,7 @@
   <main id="integrador">
     <Banner :item="integrador.banner" :background="banner_background" />
     <GridTwoImageWithForm id="integrador" image="images/american-public-power-association.png" :cta="integrador.form.cta" />
-    <CarouselDepositions :title="integrador.depositions.title" :items="depositions" />
+    <!-- <CarouselDepositions :title="integrador.depositions.title" :items="depositions" /> -->
   </main>
 </template>
 

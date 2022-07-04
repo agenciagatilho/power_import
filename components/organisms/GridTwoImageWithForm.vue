@@ -108,8 +108,9 @@ export default {
       @apply grid-cols-1 gap-50px;
 
       ._image{
+        width: 100%;
         img {
-          margin-left: -40px;
+          @apply m-0;
         }
       }
 

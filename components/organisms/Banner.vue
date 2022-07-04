@@ -45,11 +45,12 @@ export default {
   ._banner {
     @apply text-center;
     >.container{
+      @apply h-600px;
       h1{
         @apply max-w-500px;
       }
       p{
-        @apply max-w-470px;
+        @apply max-w-310px mx-auto;
       }
       .default_button{
         @apply px-30px mx-auto;

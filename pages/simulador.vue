@@ -6,7 +6,7 @@
         <v-image src="images/sungrow_5.png" width="650px" height="425px" />
       </picture>
       <div class="_form">
-        <form id="form_simulador">
+        <form id="form_simulador" @submit="submit">
           <v-input id="state" placeholder="Estado" :maxlength="255" list="data_states" @change="getCities" />
           <v-input id="city" placeholder="Cidade" :maxlength="255" list="data_cities" />
           <v-input id="address" placeholder="Endereço" :maxlength="1000" />
@@ -37,7 +37,7 @@ export default {
       simulador,
       states,
       banner_background: {
-        src: '/images/banner_quemsomos.png',
+        src: '/images/banner_simulador.png',
         color: '#ED7220'
       }
     }
@@ -70,6 +70,11 @@ export default {
       this.$cities.get(id).then((cities) => {
         this.cities = cities
       })
+    },
+    submit (e) {
+      e.preventDefault()
+      const form = e.target
+      console.log(form)
     }
   }
 }

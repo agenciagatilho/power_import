@@ -35,8 +35,8 @@ export default {
         sitemap.quemSomos,
         sitemap.energiasRenovaveis,
         sitemap.equipamentos,
-        sitemap.simulador,
-        sitemap.blog,
+        // sitemap.simulador,
+        // sitemap.blog,
         sitemap.integrador,
         sitemap.contato,
         sitemap.plataforma,
@@ -64,9 +64,11 @@ export default {
 
 <style lang="scss">
   #header {
+    @apply h-66px -mb-75px fixed w-full z-9;
     background-color: #F4F4F4;
     >*{
-      @apply flex justify-between items-center -mb-75px;
+      @apply flex justify-between items-center;
+
       >menu{
         @apply flex p-0 gap-20px items-center;
 

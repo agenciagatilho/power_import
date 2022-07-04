@@ -31,6 +31,10 @@ export default {
 <style lang="scss">
   #body{
     @apply flex flex-col gap-75px;
+
+    main{
+      @apply mt-66px;
+    }
   }
   #toasts{
     @apply top-0 left-1/2;

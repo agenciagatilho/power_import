@@ -34,12 +34,12 @@ export default {
 
       mask-image: url('/mask-background.svg');
       mask-repeat: no-repeat;
-      mask-position: left center;
+      mask-position: right center;
       mask-size: cover;
 
       -webkit-mask-image: url('/mask-background.svg');
       -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: left center;
+      -webkit-mask-position: right center;
       -webkit-mask-size: cover;
     }
   }

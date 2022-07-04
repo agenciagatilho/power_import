@@ -39,7 +39,7 @@
       <div class="_right">
         <span class="address">
           <v-image src="address.svg" height="20px" />
-          <a :href="media.address" target="_blank" rel="noopener noreferrer">
+          <a :href="media.addressMap" target="_blank" rel="noopener noreferrer">
             {{ footer.contact.address }}
           </a>
         </span>
@@ -59,9 +59,9 @@
     </span>
     <hr>
     <span class="_bottom_footer">
-      <a :href="media.privacy" target="_blank" rel="noopener noreferrer">
+      <!-- <a :href="media.privacy" target="_blank" rel="noopener noreferrer">
         {{ footer.privacy }}
-      </a>
+      </a> -->
       <a :href="media.gatilho" target="_blank" rel="noopener noreferrer">
         {{ footer.gatilho }}
       </a>
@@ -126,7 +126,7 @@ export default {
         }
 
         ._center{
-          @apply grid grid-cols-2 gap-x-75px gap-y-20px p-0;
+          @apply grid grid-cols-2 gap-x-75px gap-y-20px p-0 my-15px;
           grid-template-rows: repeat(4, max-content);
 
           ._menu_item{
@@ -169,10 +169,10 @@ export default {
         }
 
         ._right{
-          @apply flex flex-col gap-20px;
+          @apply flex flex-col gap-20px my-15px;
 
           span{
-            @apply grid gap-15px;
+            @apply grid gap-15px items-center;
             grid-template-columns: 15px 1fr;
           }
         }
@@ -181,7 +181,7 @@ export default {
         @apply mt-50px mb-10px;
       }
       ._bottom_footer{
-        @apply flex justify-between;
+        @apply flex justify-center;
         font-family: 'Intelo';
       }
     }
@@ -233,7 +233,9 @@ export default {
           }
         }
       }
-
+      hr{
+        @apply mt-20px;
+      }
       ._bottom_footer{
         @apply flex-col items-center gap-15px;
       }

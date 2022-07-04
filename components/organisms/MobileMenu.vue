@@ -3,6 +3,7 @@
     <nuxt-link to="/">
       <v-image src="logo-header.svg" width="208px" height="35px" />
     </nuxt-link>
+    <MobileMenuIcon />
     <menu>
       <div v-for="(item, index) in menu" :key="'header_'+index" class="_menu_item" @click="closeMenu">
         <nuxt-link v-if="item.url && !item.url.includes('http')" :to="item.url" :class="{'home': isHome(index)}">
@@ -35,8 +36,8 @@ export default {
         sitemap.quemSomos,
         sitemap.energiasRenovaveis,
         sitemap.equipamentos,
-        sitemap.simulador,
-        sitemap.blog,
+        // sitemap.simulador,
+        // sitemap.blog,
         sitemap.integrador,
         sitemap.contato,
         sitemap.plataforma,
@@ -64,10 +65,14 @@ export default {
 
 <style lang="scss">
   ._mobile_menu{
-    @apply fixed w-full h-full top-0 left-0
+    @apply fixed w-full h-full top-0 left-0 z-9
            bg-white z-10 p-20px
            transform -translate-x-3/2 pointer-events-none;
     transition: all 0.1s ease-in-out;
+
+    ._mobile_menu_icon{
+      @apply top-30px;
+    }
 
     &.show{
       @apply translate-x-0 pointer-events-auto;

@@ -1,10 +1,10 @@
 {
-  "facebook": "https://www.facebook.com/powerimportenergiasolar/",
-  "instagram": "https://www.instagram.com/powerimportenergiasolar/",
+  "facebook": "https://www.facebook.com/vienersolar",
+  "instagram": "https://www.instagram.com/vienersolar/",
   "linkedin": "https://www.linkedin.com/company/vienersolar",
   "whatsapp": "https://api.whatsapp.com/send?phone=5549999430325&text=Ola venho do site da viener e gostaria de saber um pouco mais sobre os equipamentos.",
   "address": "Rua A, Loteamento Mumbach 2, Iraceminha-SC",
-  "email": "viener@viener.com.br",
-  "gatilho": "https://agenciagatilho.com.br",
-  "privacy": "/"
+  "addressMap": "https://www.google.com.br/maps/search/Rua+A,+Loteamento+Mumbach+2,+Iraceminha-SC/@-26.8083938,-53.3025272,14z/data=!3m1!4b1?hl=pt-BR",
+  "email": "mailto:viener@viener.com.br",
+  "gatilho": "https://agenciagatilho.com.br"
 }

@@ -27,7 +27,7 @@
       </nuxt-link>
     </MobileCarousel>
 
-    <section class="_pagination">
+    <section v-if="pagination.length > 1" class="_pagination">
       <ul>
         <li>
           <button @click="setPage(queryPage - 1)">
@@ -138,7 +138,7 @@ export default {
         grid-template-rows: 230px 24px;
 
         img{
-          @apply h-full object-cover;
+          @apply h-full object-cover mx-auto p-10px;
         }
 
         p {
@@ -154,7 +154,7 @@ export default {
           line-height: 30px;
 
          li{
-          @apply flex items-center;
+          @apply flex items-center cursor-pointer;
           &.active{
             @apply underline text-$primary;
           }

@@ -247,6 +247,14 @@ export default {
   #home {
     @apply gap-50px text-center;
 
+    ._banner {
+      >.container{
+        p{
+          @apply max-w-280px;
+        }
+      }
+    }
+
     .soluctionsForSolarProducts{
       @apply py-30px -mt-50px;
       >*{

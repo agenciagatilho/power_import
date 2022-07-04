@@ -1,11 +1,13 @@
 <template>
   <main id="equipamentos">
     <Banner :item="equipamentos.banner" :background="banner_background" />
-    <v-container class="_sections_equipaments" v-if="items">
-      <EquipamentCategory category="Deye" :items="items.docs" v-for="i in 4" :key="i" />
+    <v-container v-if="items" class="_sections_equipaments">
+      <EquipamentCategory v-for="item in items" :key="item.title" :category="item.title" :items="item.docs" />
     </v-container>
-    <v-container class="_sections_equipaments" v-else>
-      <h2 class="_not_found"> Nenhum equipamento encontrado. </h2>
+    <v-container v-else class="_sections_equipaments">
+      <h2 class="_not_found">
+        Nenhum equipamento encontrado.
+      </h2>
     </v-container>
   </main>
 </template>
@@ -44,8 +46,22 @@ export default {
   },
   mounted () {
     (async () => {
+      const itemsSplited = {}
       const category = this.$route.params.type
-      this.items = await this.$firebase.list(category)
+      const items = await this.$firebase.list(category)
+
+      for (const key in items.docs) {
+        const element = items.docs[key]
+        const slug = element.slug
+        const title = element.category[0].toUpperCase() + element.category.substring(1)
+
+        if (!itemsSplited[element.category]) {
+          itemsSplited[element.category] = { title, docs: {} }
+        }
+
+        itemsSplited[element.category].docs[slug] = element
+      }
+      this.items = itemsSplited
     })()
   }
 }

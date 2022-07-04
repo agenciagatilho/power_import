@@ -47,7 +47,7 @@ export default {
     >.container{
       @apply h-600px;
       h1{
-        @apply max-w-500px;
+        @apply max-w-500px mx-auto;
       }
       p{
         @apply max-w-310px mx-auto;

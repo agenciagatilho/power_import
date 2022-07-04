@@ -37,7 +37,7 @@ export default {
       simulador,
       states,
       banner_background: {
-        src: 'images/banner_quemsomos.png',
+        src: '/images/banner_quemsomos.png',
         color: '#ED7220'
       }
     }
@@ -139,4 +139,35 @@ export default {
     }
   }
 
+@media screen and (max-width: 768px) {
+  #simulador{
+    @apply gap-50px;
+
+    ._grid_two_image_with_form_simulador{
+      .container{
+        @apply grid-cols-1 gap-50px;
+
+        ._image{
+          img{
+            @apply -ml-40px;
+          }
+        }
+
+        ._form{
+          form{
+            .input-box{
+              label{
+                @apply text-17px;
+              }
+            }
+            #span_input_payment:hover::after{
+              @apply right-15px;
+              top: calc(50% - 2px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

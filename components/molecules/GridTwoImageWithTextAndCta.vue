@@ -90,14 +90,14 @@ export default {
 
     &.inverted .container{
       ._image{
-        @apply col-start-2;
+        @apply col-start-1;
         img {
           @apply w-full h-full;
           margin-left: 0px;
         }
       }
       ._text{
-        @apply col-start-1 row-start-1;
+        @apply col-start-1 row-start-2;
       }
     }
   }

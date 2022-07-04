@@ -101,4 +101,55 @@ export default {
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  ._grid_two_image_with_form{
+    .container{
+      @apply grid-cols-1 gap-50px;
+
+      ._image{
+        img {
+          margin-left: -40px;
+        }
+      }
+
+      ._form{
+        @apply flex flex-col justify-center gap-20px;
+
+        form {
+          @apply grid-cols-1 gap-15px;
+
+          .input-box{
+            @apply flex-col gap-5px;
+            label {
+              @apply opacity-100 text-17px;
+              line-height: 22px;
+            }
+          }
+
+          #span_input_email, #span_input_message{
+            @apply col-span-1;
+          }
+
+          button{
+            @apply col-start-1 px-27px mx-auto;
+          }
+        }
+      }
+    }
+
+    &.inverted .container{
+      ._image{
+        @apply col-start-1;
+        img {
+          @apply w-full h-full;
+          margin-left: 0px;
+        }
+      }
+      ._form{
+        @apply col-start-1 row-start-1;
+      }
+    }
+  }
+}
 </style>

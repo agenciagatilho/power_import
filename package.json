@@ -12,12 +12,14 @@
     "lintfix": "npm run lint:js -- --fix"
   },
   "dependencies": {
+    "@braid/vue-formulate": "^2.5.3",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/composition-api": "^0.32.0",
     "@vue/composition-api": "^1.6.3",
     "child_process": "^1.0.2",
     "core-js": "^3.19.3",
     "dns": "^0.2.2",
+    "firebase": "^9.8.4",
     "fs": "^0.0.1-security",
     "net": "^1.0.2",
     "nodemailer": "^6.7.5",

@@ -76,7 +76,7 @@ export default {
       toast: useToastStore(),
       home,
       banner_background: {
-        src: 'images/banner_home.png',
+        src: '/images/banner_home.png',
         color: '#5EAC55'
       },
       currentSoluctionSelected: 'agro',
@@ -151,10 +151,6 @@ export default {
 <style lang="scss">
 #home {
   @apply flex flex-col gap-75px;
-
-  a{
-    @apply hidden;
-  }
 
   .soluctionsForSolarProducts{
     @apply bg-$text py-50px -mt-75px;

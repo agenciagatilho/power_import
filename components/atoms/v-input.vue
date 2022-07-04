@@ -30,7 +30,9 @@
       :list="list"
       @input="masked"
       @change="change"
-    />
+    >
+      <option v-for="option in options" :key="option.name" :value="option.name" v-text="option.title" />
+    </component>
   </span>
 </template>
 
@@ -120,6 +122,10 @@ export default {
     list: {
       type: String,
       default: null
+    },
+    options: {
+      type: Object,
+      default: null
     }
   },
   data () {
@@ -194,7 +200,7 @@ export default {
 
     label{ font-size: 0; @apply w-0 h-0 opacity-0; }
 
-    input, textarea{
+    input, textarea, select{
         @apply h-full w-full py-13px px-25px bg-transparent font-bold;
         font-size: 14px;
         line-height: 14px;

@@ -1,5 +1,5 @@
 <template>
-  <div id="_depositions_item">
+  <div class="_depositions_item">
     <button class="alt _prev" @click="goToPrev">
       <v-image src="prev.svg" height="17px" width="16px" />
     </button>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-  #_depositions_item {
+  ._depositions_item {
     @apply px-15px w-525px h-400px
            rounded-20px border-2px border-$secondary-dark
            grid gap-30px items-center;
@@ -79,4 +79,16 @@ export default {
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  ._depositions_item {
+    @apply p-15px w-full h-full gap-15px;
+
+    .content{
+      .description{
+        @apply mt-20px;
+      }
+    }
+  }
+}
 </style>

@@ -15,7 +15,7 @@
         <p v-else @click="openMenu">
           {{ item.text }}
         </p>
-        <div v-if="item.submenu" class="_submenu">
+        <div v-if="item.submenu" class="_submenu" @click="openMenuNoToggle">
           <nuxt-link v-for="(_item, index) in item.submenu" :key="'header_'+index" :to="_item.url">
             {{ _item.text }}
           </nuxt-link>
@@ -32,12 +32,13 @@ export default {
     return {
       menu: [
         sitemap.home,
-        // sitemap.quemSomos,
-        // sitemap.energiasRenovaveis,
-        // sitemap.equipamentos,
-        // sitemap.simulador,
-        // sitemap.blog,
-        // sitemap.integrador,
+        sitemap.quemSomos,
+        sitemap.energiasRenovaveis,
+        sitemap.equipamentos,
+        sitemap.simulador,
+        sitemap.blog,
+        sitemap.integrador,
+        sitemap.contato,
         sitemap.plataforma,
         sitemap.faleComIntegrador
       ]
@@ -47,6 +48,12 @@ export default {
     openMenu (e) {
       const submenu = e.target.offsetParent
       submenu.classList.toggle('show')
+    },
+    openMenuNoToggle () {
+      const submenu = document.querySelectorAll('._menu_item.show')
+      submenu.forEach((el) => {
+        el.classList.remove('show')
+      })
     },
     isHome (page) {
       return this.$route.name !== 'index' && page === 0
@@ -84,13 +91,17 @@ export default {
           }
 
           ._submenu{
-            @apply flex flex-col py-10px px-15px rounded-10px
+            @apply flex flex-col py-10px px-15px rounded-10px z-9999
                    absolute bg-$primary -left-25px -right-25px
                    transform scale-y-0 origin-top opacity-0 pointer-events-none;
             transition: all 0.15s ease-in-out;
             top: calc(100% + 10px);
             a,p {
               color: var(--text-light);
+
+              &:nth-child(2){
+                 font-size: 11px;
+              }
             }
           }
 

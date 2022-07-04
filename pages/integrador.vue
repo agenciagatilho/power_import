@@ -1,7 +1,7 @@
 <template>
   <main id="integrador">
     <Banner :item="integrador.banner" :background="banner_background" />
-    <GridTwoImageWithForm id="integrador" image="images/sungrow_4.png" :cta="integrador.form.cta" />
+    <GridTwoImageWithForm id="integrador" image="images/american-public-power-association.png" :cta="integrador.form.cta" />
     <CarouselDepositions :title="integrador.depositions.title" :items="depositions" />
   </main>
 </template>
@@ -15,7 +15,7 @@ export default {
       integrador,
       depositions,
       banner_background: {
-        src: 'images/banner_integrador.png',
+        src: '/images/banner_integrador.png',
         color: '#5EA756'
       }
     }
@@ -46,4 +46,9 @@ export default {
   #integrador{
     @apply flex flex-col gap-75px;
   }
+@media screen and (max-width: 768px) {
+  #integrador{
+    @apply gap-50px;
+  }
+}
 </style>

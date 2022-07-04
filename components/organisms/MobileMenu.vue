@@ -32,12 +32,13 @@ export default {
     return {
       menu: [
         sitemap.home,
-        // sitemap.quemSomos,
-        // sitemap.energiasRenovaveis,
-        // sitemap.equipamentos,
-        // sitemap.simulador,
-        // sitemap.blog,
-        // sitemap.integrador,
+        sitemap.quemSomos,
+        sitemap.energiasRenovaveis,
+        sitemap.equipamentos,
+        sitemap.simulador,
+        sitemap.blog,
+        sitemap.integrador,
+        sitemap.contato,
         sitemap.plataforma,
         sitemap.faleComIntegrador
       ],

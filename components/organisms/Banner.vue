@@ -43,6 +43,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   ._banner {
+    @apply text-center;
     >.container{
       h1{
         @apply max-w-500px;

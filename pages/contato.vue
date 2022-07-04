@@ -1,11 +1,26 @@
 <template>
   <main id="contato">
-
+    <Banner :item="contato.banner" :background="banner_background" />
+    <GridTwoImageWithForm id="integrador" image="images/sungrow_4.png" :cta="contato.form.cta" />
+    <MapLocale :title="contato.map.title" :address="media.address" />
   </main>
 </template>
 
 <script>
+import contato from '@/data/ptbr/contato.json'
+import media from '@/data/ptbr/social_medias.json'
+
 export default {
+  data () {
+    return {
+      contato,
+      media,
+      banner_background: {
+        src: '/images/banner_contato.png',
+        color: '#ED7220'
+      }
+    }
+  },
   head () {
     return {
       title: 'contato | Viener',
@@ -29,4 +44,24 @@ export default {
 </script>
 
 <style lang="scss">
+  #contato{
+    @apply flex flex-col gap-75px;
+
+    ._banner {
+      h1{
+        @apply max-w-280px;
+      }
+    }
+  }
+@media screen and (max-width: 768px) {
+  #contato{
+    @apply gap-50px;
+
+    ._banner {
+      h1{
+        @apply mx-auto;
+      }
+    }
+  }
+}
 </style>

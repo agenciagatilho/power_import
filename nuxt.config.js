@@ -71,6 +71,7 @@ export default {
     { src: '~/plugins/GMT.js', mode: 'client' },
     { src: '~/plugins/sendEmail.js', mode: 'client' },
     { src: '~/plugins/getCities.js', mode: 'client' },
+    { src: '~/plugins/firebase.js', mode: 'client' },
     { src: '~/plugins/pinia.js' }
   ],
 
@@ -88,7 +89,8 @@ export default {
     'nuxt-windicss',
     '@nuxtjs/device',
     '@nuxtjs/svg',
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
+    '@braid/vue-formulate/nuxt'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

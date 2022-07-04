@@ -14,7 +14,7 @@ export default {
     return {
       blog,
       banner_background: {
-        src: 'images/banner_blog.png',
+        src: '/images/banner_blog.png',
         color: '#2E4739'
       },
       blogPosts: []
@@ -70,7 +70,11 @@ export default {
           : finalImage.guid.rendered
       }))
     }
-    this.blogPosts = blogPosts.slice(0, 9)
+    if (this.$device.isMobile) {
+      this.blogPosts = blogPosts.slice(0, 3)
+    } else {
+      this.blogPosts = blogPosts.slice(0, 9)
+    }
   }
 }
 </script>
@@ -84,4 +88,15 @@ export default {
       }
     }
   }
+
+@media screen and (max-width: 768px) {
+  #blog{
+    @apply gap-50px;
+    ._blog_content{
+      .container{
+        @apply grid grid-cols-1 gap-50px;
+      }
+    }
+  }
+}
 </style>

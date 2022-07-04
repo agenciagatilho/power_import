@@ -17,7 +17,7 @@ export default {
       quemsomos,
       depositions,
       banner_background: {
-        src: 'images/banner_quemsomos.png',
+        src: '/images/banner_quemsomos.png',
         color: '#ED7220'
       }
     }
@@ -62,6 +62,12 @@ export default {
     h2{
       @apply max-w-415px;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #quem_somos {
+    @apply text-center gap-50px;
   }
 }
 </style>

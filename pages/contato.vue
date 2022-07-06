@@ -1,7 +1,7 @@
 <template>
   <main id="contato">
     <Banner :item="contato.banner" :background="banner_background" />
-    <GridTwoImageWithForm id="integrador" image="/images/sungrow_4.png" :cta="contato.form.cta" />
+    <GridTwoImageWithForm id="contato" image="/images/sungrow_4.png" :cta="contato.form.cta" />
     <MapLocale :title="contato.map.title" :address="media.address" />
   </main>
 </template>

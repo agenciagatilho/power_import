@@ -4,7 +4,7 @@
       <v-image :src="image" width="650px" height="425px" />
     </picture>
     <div class="_form">
-      <form :id="'form_'+id">
+      <form :id="'form_'+id" @submit="submit">
         <v-input id="name" placeholder="Nome" :maxlength="100" />
         <v-input id="telphone" type="tel" placeholder="Telefone" :mask="'(##) #####-####'" :maxlength="15" />
         <v-input id="email" type="email" placeholder="E-mail" :maxlength="255" />
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { useToastStore } from '@/store/toastState'
 export default {
   props: {
     image: {
@@ -37,6 +38,44 @@ export default {
     id: {
       type: String,
       required: true
+    }
+  },
+  data () {
+    return {
+      toast: useToastStore()
+    }
+  },
+  methods: {
+    submit (e) {
+      e.preventDefault()
+      const form = e.target
+
+      const data = {
+        name: form.name.value,
+        telphone: form.telphone.value,
+        email: form.email.value,
+        city: form.city.value,
+        company: form.company.value,
+        message: form.message.value,
+        subject: 'Formulario de ' + this.id,
+        msg: `
+          <h2>Formulario vindo do site em:<br>
+            <a href="${window.location.href}"> ${window.location.href}</a>
+          </h2>
+          <br><br>
+          <strong>Nome: </strong> ${form.name.value}<br>
+          <strong>Telefone: </strong> ${form.telphone.value}<br>
+          <strong>Email: </strong> ${form.email.value}<br>
+          <strong>Cidade: </strong> ${form.city.value}<br>
+          <strong>Empresa: </strong> ${form.company.value}<br>
+          <strong>Mensagem: </strong> ${form.message.value}<br>
+        `
+      }
+
+      this.$api.send(data).then((res) => {
+        this.toast.showToast('Formulário enviado com sucesso')
+        form.reset()
+      })
     }
   }
 }

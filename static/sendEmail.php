@@ -24,7 +24,7 @@
   $mail->From = $email;
   $mail->FromName   = $name;
 
-  $to = "contato@viener.com.br";
+  $to = "contato@viener.com.br, stmp@viener.com.br";
   $mail->AddAddress($to);
   $mail->Subject = $subject;
   $mail->WordWrap = 80;

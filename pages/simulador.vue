@@ -31,9 +31,11 @@
 <script>
 import simulador from '@/data/ptbr/simulador.json'
 import states from '@/data/ptbr/states.json'
+import { useToastStore } from '@/store/toastState'
 export default {
   data () {
     return {
+      toast: useToastStore(),
       simulador,
       states,
       banner_background: {
@@ -74,7 +76,33 @@ export default {
     submit (e) {
       e.preventDefault()
       const form = e.target
-      console.log(form)
+
+      const data = {
+        name: form.name.value,
+        telphone: form.telphone.value,
+        email: form.email.value,
+        city: form.city.value,
+        company: form.company.value,
+        message: form.message.value,
+        subject: 'Formulario de ' + this.id,
+        msg: `
+          <h2>Formulario vindo do site em:<br>
+            <a href="${window.location.href}"> ${window.location.href}</a>
+          </h2>
+          <br><br>
+          <strong>Nome: </strong> ${form.name.value}<br>
+          <strong>Telefone: </strong> ${form.telphone.value}<br>
+          <strong>Email: </strong> ${form.email.value}<br>
+          <strong>Cidade: </strong> ${form.city.value}<br>
+          <strong>Empresa: </strong> ${form.company.value}<br>
+          <strong>Mensagem: </strong> ${form.message.value}<br>
+        `
+      }
+
+      this.$api.send(data).then((res) => {
+        this.toast.showToast('Formulário enviado com sucesso')
+        form.reset()
+      })
     }
   }
 }

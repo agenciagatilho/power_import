@@ -131,7 +131,7 @@ export default {
         email: form.email.value,
         subject: 'Newsletter',
         msg: `
-          <h2>Newsletter vindo da home em:<br>
+          <h2>Newsletter vindo de:<br>
             <a href="${window.location.href}"> ${window.location.href}</a>
           </h2>
           <br><br>
@@ -142,6 +142,7 @@ export default {
 
       this.$api.send(data).then((res) => {
         this.toast.showToast('Formulário enviado com sucesso')
+        form.reset()
       })
     }
   }

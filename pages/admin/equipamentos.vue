@@ -81,7 +81,8 @@ export default {
         { name: 'inversores', title: 'Inversores' },
         { name: 'materiaisdeprotecao', title: 'Materiais de proteção' },
         { name: 'outrosmateriais', title: 'Outros materiais' },
-        { name: 'modulos', title: 'Módulos' }
+        { name: 'modulos', title: 'Módulos' },
+        { name: 'estrutura', title: 'Estrutura ' }
       ],
       items: null,
       category: 'inversores',

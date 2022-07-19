@@ -29,6 +29,10 @@
       "outrosmateriais": {
         "text": "Outros materiais",
         "url": "/equipamentos/outrosmateriais"
+      },
+      "estrutura": {
+        "text": "Estrutura",
+        "url": "/equipamentos/estrutura"
       }
     }
   },

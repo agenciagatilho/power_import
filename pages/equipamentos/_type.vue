@@ -51,15 +51,16 @@ export default {
       const items = await this.$firebase.list(category)
 
       for (const key in items.docs) {
-        const element = items.docs[key]
-        const slug = element.slug
-        const title = element.category[0].toUpperCase() + element.category.substring(1)
+        if (!items.docs[key]?.inative) {
+          const element = items.docs[key]
+          const slug = element.slug
+          const title = element.category[0].toUpperCase() + element.category.substring(1)
 
-        if (!itemsSplited[element.category]) {
-          itemsSplited[element.category] = { title, docs: {} }
+          if (!itemsSplited[element.category]) {
+            itemsSplited[element.category] = { title, docs: {} }
+          }
+          itemsSplited[element.category].docs[slug] = element
         }
-
-        itemsSplited[element.category].docs[slug] = element
       }
       this.items = itemsSplited
     })()

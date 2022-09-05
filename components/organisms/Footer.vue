@@ -4,17 +4,21 @@
       <div class="_left">
         <nuxt-link to="/">
           <v-image src="logo-footer.svg" width="377px" />
+          <span class="__accs_text">inicio</span>
         </nuxt-link>
         <p>{{ footer.social_media }}</p>
         <span>
           <a :href="media.facebook" target="_blank" rel="noopener noreferrer">
             <v-image src="facebook.svg" height="30px" />
+            <span class="__accs_text">facebook</span>
           </a>
           <a :href="media.linkedin" target="_blank" rel="noopener noreferrer">
             <v-image src="linkedin.svg" height="28px" />
+            <span class="__accs_text">linkedin</span>
           </a>
           <a :href="media.instagram" target="_blank" rel="noopener noreferrer">
             <v-image src="instagram.svg" height="28px" />
+            <span class="__accs_text">instagram</span>
           </a>
         </span>
       </div>
@@ -80,7 +84,7 @@ export default {
       footer,
       menu: [
         sitemap.home,
-        // sitemap.blog,
+        sitemap.blog,
         sitemap.quemSomos,
         sitemap.integrador,
         sitemap.contato,

@@ -1,7 +1,20 @@
+import shrinkRay from 'shrink-ray-current'
+// import axios from 'axios'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  render: {
+    compressor: shrinkRay()
+  },
+  generate: {
+    fallback: true,
+    exclude: ['/admin']
+    // routes: async () => {
+    //   const posts = await axios.get('https://wordpress.viener.com.br/wp-json/wp/v2/posts?_fields=slug')
+    //   return posts.data.map(post => `/blog/${post.slug}`)
+    // }
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: ' Viener | Distribuindo energia, gerando conexões.',
@@ -10,7 +23,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=no' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=3.0' },
       { name: 'format-detection', content: 'telephone=no' },
 
       { 'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8' },
@@ -22,6 +35,7 @@ export default {
 
       { name: 'title', content: ' Viener | Distribuindo energia, gerando conexões.' },
       { name: 'description', content: 'Trabalhamos com energias renováveis, levando às pessoas uma fonte inesgotável de benefícios e ajudando a construir um futuro melhor e mais sustentável.' },
+      { name: 'keywords', content: 'energias, renováveis, integrador, soluções, equipamentos, energias renovaveis, solar, agro' },
 
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://viener.com.br/' },
@@ -34,7 +48,8 @@ export default {
       { property: 'twitter:description', content: 'Trabalhamos com energias renováveis, levando às pessoas uma fonte inesgotável de benefícios e ajudando a construir um futuro melhor e mais sustentável.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'canonical', href: 'https://viener.com.br' }
     ],
     script: [
       {
@@ -96,8 +111,19 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxt/image',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
+
+  sitemap: {
+    hostname: 'https://viener.com.br',
+    gzip: true,
+    exclude: [
+      '/admin/**',
+      '/blog/**'
+    ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
 

@@ -1,12 +1,26 @@
 <template>
   <v-container class="_grid_two_image_with_text_and_cta" :class="{'inverted': inverted}">
     <picture class="_image">
-      <v-image :src="image" width="650px" height="425px" />
+      <video
+        v-if="image.includes('mp4')"
+        controls
+        autoplay
+        playsinline
+        preload="metadata"
+        :src="image"
+        :poster="`${image.replaceAll('.mp4', '')}-preview.webp`"
+        :alt="alt"
+        width="650px"
+        height="425px"
+      />
+      <v-image v-else :src="image" width="650px" height="425px" :alt="alt" />
     </picture>
     <div class="_text">
       <h2>{{ item.title }}</h2>
-      <h3 v-if="item.subtitle">{{ item.subtitle }}</h3>
-      <p v-html="item.description"/>
+      <h3 v-if="item.subtitle">
+        {{ item.subtitle }}
+      </h3>
+      <p v-html="item.description" />
       <nuxt-link v-if="item.cta" :to="item.cta.url" class="default_button">
         {{ item.cta.text }}
       </nuxt-link>
@@ -22,6 +36,10 @@ export default {
       required: true
     },
     image: {
+      type: String,
+      required: true
+    },
+    alt: {
       type: String,
       required: true
     },

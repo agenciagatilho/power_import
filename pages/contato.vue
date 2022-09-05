@@ -1,7 +1,7 @@
 <template>
   <main id="contato">
     <Banner :item="contato.banner" :background="banner_background" />
-    <GridTwoImageWithForm id="contato" image="/images/sungrow_4.png" :cta="contato.form.cta" />
+    <GridTwoImageWithForm id="contato" image="/images/sungrow_4.webp" alt="varios paineis solares" :cta="contato.form.cta" />
     <MapLocale :title="contato.map.title" :address="media.address" />
   </main>
 </template>
@@ -16,7 +16,7 @@ export default {
       contato,
       media,
       banner_background: {
-        src: '/images/banner_contato.png',
+        src: '/images/banner_contato.webp',
         color: '#ED7220'
       }
     }

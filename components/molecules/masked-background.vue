@@ -1,7 +1,7 @@
 <template>
   <div class="_masked_background">
     <div :style="`--color: ${color};`" height="600px" class="_mask" />
-    <v-image :src="src" width="1920px" height="600px" />
+    <v-image :src="src" width="1920px" :alt="alt" height="600px" />
   </div>
 </template>
 
@@ -9,6 +9,10 @@
 export default {
   props: {
     src: {
+      type: String,
+      required: true
+    },
+    alt: {
       type: String,
       required: true
     },

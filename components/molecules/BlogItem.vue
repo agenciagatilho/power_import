@@ -1,14 +1,17 @@
 <template>
-  <article class="_blog_item">
-    <picture class="_image">
-      <img :src="item.image" alt="Imagem do blog" width="354px" height="178px">
-    </picture>
-    <h3> {{ item.title }} </h3>
-    <p v-text="descriptionLimited" />
-    <nuxt-link :to="item.link" class="default_button">
-      Ver mais
-    </nuxt-link>
-  </article>
+  <a :href="item.link">
+    <article class="_blog_item">
+      <!-- <Banner :item="blog.banner" :background="banner_background" /> -->
+      <picture class="_image">
+        <img :src="item.image" alt="Imagem do blog" width="354px" height="178px">
+      </picture>
+      <h3> {{ item.title }} </h3>
+      <p v-text="descriptionLimited" />
+      <a :href="item.link" class="default_button">
+        Ver mais
+      </a>
+    </article>
+  </a>
 </template>
 
 <script>
@@ -38,7 +41,7 @@ export default {
 
     ._image{
       img{
-        @apply w-full;
+        @apply w-full h-180px object-center object-cover;
       }
     }
 

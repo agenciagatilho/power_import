@@ -1,7 +1,7 @@
 <template>
   <div class="_depositions_item">
     <button class="alt _prev" @click="goToPrev">
-      <v-image src="prev.svg" height="17px" width="16px" />
+      <v-image src="prev.svg" alt="voltar carousel" height="17px" width="16px" />
     </button>
     <div class="content">
       <h3 class="_name">{{ item.name }}</h3>
@@ -12,7 +12,7 @@
       </p>
     </div>
     <button class="alt _next" @click="goToNext">
-      <v-image src="next.svg" height="17px" width="16px" />
+      <v-image src="next.svg" alt="avançar carousel" height="17px" width="16px" />
     </button>
   </div>
 </template>

@@ -2,6 +2,7 @@
   <v-container id="header" element="header">
     <nuxt-link to="/">
       <v-image src="logo-header.svg" width="142px" height="24px" />
+      <span class="__accs_text">inicio</span>
     </nuxt-link>
     <MobileMenuIcon />
     <menu>
@@ -36,7 +37,7 @@ export default {
         sitemap.energiasRenovaveis,
         sitemap.equipamentos,
         // sitemap.simulador,
-        // sitemap.blog,
+        sitemap.blog,
         sitemap.integrador,
         sitemap.contato,
         sitemap.plataforma,

@@ -14,6 +14,10 @@ html {
   line-height: 22px;
   color: #2E4739;
   overflow-x: hidden;
+  margin: 0 !important;
+}
+.__accs_text{
+  @apply absolute text-0px opacity-0 pointer-events-none;
 }
 * {
   outline: none;

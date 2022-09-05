@@ -7,7 +7,14 @@
         {{ item.cta.text }}
       </nuxt-link>
     </div>
-    <v-image v-if="image" class="background" :src="image" width="1920px" height="350px" />
+    <v-image
+      v-if="image"
+      class="background"
+      alt="background"
+      :src="image"
+      width="1920px"
+      height="350px"
+    />
   </section>
 </template>
 

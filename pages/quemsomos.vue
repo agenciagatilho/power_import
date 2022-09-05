@@ -1,9 +1,9 @@
 <template>
   <main id="quem_somos">
     <Banner :item="quemsomos.banner" :background="banner_background" />
-    <GridTwoImageWithTextAndCta :item="quemsomos.detailsAttention" image="/images/young-architect-standing.png" />
-    <FullscreenLinearText :item="quemsomos.careAndResponsibility" image="/images/background-linear-quemsomos.png" color="#2E4739CC" />
-    <GridTwoImageWithTextAndCta inverted class="_transform_energy_with_viener" :item="quemsomos.transformEnergyWithViener" image="/images/sungrow_2.png" />
+    <GridTwoImageWithTextAndCta :item="quemsomos.detailsAttention" image="/images/young-architect-standing.webp" alt="arquiteto para na frente de paineis solares" />
+    <FullscreenLinearText :item="quemsomos.careAndResponsibility" image="/images/background-linear-quemsomos.webp" color="#2E4739CC" />
+    <GridTwoImageWithTextAndCta inverted class="_transform_energy_with_viener" :item="quemsomos.transformEnergyWithViener" image="/images/sungrow_2.webp" alt="painel solar" />
     <!-- <CarouselDepositions :title="quemsomos.depositions.title" :items="depositions" /> -->
   </main>
 </template>
@@ -17,7 +17,7 @@ export default {
       quemsomos,
       depositions,
       banner_background: {
-        src: '/images/banner_quemsomos.png',
+        src: '/images/banner_quemsomos.webp',
         color: '#ED7220'
       }
     }

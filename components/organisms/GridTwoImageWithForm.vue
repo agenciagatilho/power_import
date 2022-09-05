@@ -1,7 +1,7 @@
 <template>
   <v-container :id="'section_'+id" class="_grid_two_image_with_form" :class="{'inverted': inverted}">
     <picture class="_image">
-      <v-image :src="image" width="650px" height="425px" />
+      <v-image :src="image" :alt="alt" width="650px" height="425px" />
     </picture>
     <div class="_form">
       <form :id="'form_'+id" @submit="submit">
@@ -24,6 +24,10 @@ import { useToastStore } from '@/store/toastState'
 export default {
   props: {
     image: {
+      type: String,
+      required: true
+    },
+    alt: {
       type: String,
       required: true
     },

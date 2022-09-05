@@ -19,7 +19,7 @@ export default {
     return {
       equipamentos,
       banner_background: {
-        src: '/images/banner_equipamentos.png',
+        src: '/images/banner_equipamentos.webp',
         color: '#5EAC55'
       },
       items: null
@@ -46,15 +46,18 @@ export default {
   },
   mounted () {
     (async () => {
-      const itemsSplited = {}
+      let itemsSplited = {}
+      const newItems = []
       const category = this.$route.params.type
+      const order = await this.$firebase.get('order', category)
+
       const items = await this.$firebase.list(category)
 
       for (const key in items.docs) {
         if (!items.docs[key]?.inative) {
           const element = items.docs[key]
           const slug = element.slug
-          const title = element.category[0].toUpperCase() + element.category.substring(1)
+          const title = element.category[0].toUpperCase() + element.category.substring(1).toLowerCase()
 
           if (!itemsSplited[element.category]) {
             itemsSplited[element.category] = { title, docs: {} }
@@ -62,7 +65,51 @@ export default {
           itemsSplited[element.category].docs[slug] = element
         }
       }
-      this.items = itemsSplited
+
+      if (order !== 'documento não existe') {
+        itemsSplited = Object.values(itemsSplited)
+        itemsSplited = itemsSplited.sort((a, b) => {
+          if (a.title > b.title) {
+            return 1
+          }
+          if (a.title < b.title) {
+            return -1
+          }
+          return 0
+        })
+
+        itemsSplited.forEach((item) => {
+          const key = item.title.toLowerCase()
+
+          if (order[key]) {
+            newItems.push(item)
+          }
+        })
+
+        newItems.sort((a, b) => {
+          const keyA = a.title.toLowerCase()
+          const keyB = b.title.toLowerCase()
+
+          if (order[keyA] < order[keyB]) {
+            return -1
+          }
+          return 1
+        })
+
+        itemsSplited.forEach((item) => {
+          if (!newItems.includes(item)) {
+            newItems.push(item)
+          }
+        })
+      } else {
+        itemsSplited.forEach((item) => {
+          if (!newItems.includes(item)) {
+            newItems.push(item)
+          }
+        })
+      }
+
+      this.items = newItems
     })()
   }
 }

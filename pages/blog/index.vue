@@ -14,7 +14,7 @@ export default {
     return {
       blog,
       banner_background: {
-        src: '/images/banner_blog.png',
+        src: '/images/banner_blog.webp',
         color: '#2E4739'
       },
       blogPosts: []
@@ -40,41 +40,35 @@ export default {
     }
   },
   mounted () {
-    const basePosts = require('@/data/blog.json')
-    const blogPosts = []
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+    const base = '' + 'https://viener.com.br/proxy.php/'
+    fetch(base + 'https://viener.com.br/blog/wp-json/wp/v2/posts?page=1&per_page=3&_embed=wp:featuredmedia', requestOptions).then(res => (res.json().then((posts) => {
+      const basePosts = posts // require('@/data/blog.json')
+      const blogPosts = []
 
-    basePosts.forEach((item) => {
-      const image = item._links['wp:featuredmedia'][0]
-      blogPosts.push({
-        image: image.href,
-        title: item.title.rendered,
-        description: item.content.rendered,
-        link: item.link
+      basePosts.forEach((item) => {
+        let image = { href: '/default_image.jpg' }
+        if (item._embedded['wp:featuredmedia']) {
+          image = item._embedded['wp:featuredmedia'][0]
+        }
+
+        blogPosts.push({
+          image: image.source_url,
+          title: item.title.rendered,
+          description: item.content.rendered,
+          link: item.link
+        })
       })
-    })
 
-    blogPosts.map(async (item) => {
-      const baseImage = item.image
-      const finalImage = await (await fetch(baseImage, { method: 'GET' })).json()
-      return {
-        ...item,
-        image: finalImage
+      if (this.$device.isMobile) {
+        this.blogPosts = blogPosts.slice(0, 3)
+      } else {
+        this.blogPosts = blogPosts.slice(0, 9)
       }
-    })
-    for (let i = 0; i < blogPosts.length; i++) {
-      const item = blogPosts[i]
-      const baseImage = item.image
-      fetch(baseImage, { method: 'GET' }).then(r => r.json().then((finalImage) => {
-        item.image = finalImage.media_details.sizes.medium
-          ? finalImage.media_details.sizes.medium.source_url
-          : finalImage.guid.rendered
-      }))
-    }
-    if (this.$device.isMobile) {
-      this.blogPosts = blogPosts.slice(0, 3)
-    } else {
-      this.blogPosts = blogPosts.slice(0, 9)
-    }
+    })))
   }
 }
 </script>

@@ -5,10 +5,10 @@
     </VueSlickCarousel>
     <span class="next_prev">
       <button class="_prev" @click="showPrev">
-        <v-image src="prev.svg" height="17px" width="16px" />
+        <v-image src="prev.svg" alt="voltar carousel" height="17px" width="16px" />
       </button>
       <button class="_next" @click="showNext">
-        <v-image src="next.svg" height="17px" width="16px" />
+        <v-image src="next.svg" alt="avançar carousel" height="17px" width="16px" />
       </button>
     </span>
   </div>

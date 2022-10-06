@@ -3,7 +3,7 @@
     <Banner :item="simulador.banner" :background="banner_background" />
     <v-container id="section_form_simulador" class="_grid_two_image_with_form_simulador">
       <picture class="_image">
-        <v-image src="/images/sungrow_5.webp" width="650px" height="425px" />
+        <v-image src="images/sungrow_5.webp" width="650px" height="425px" />
       </picture>
       <div class="_form">
         <form id="form_simulador" @submit="submit">
@@ -39,7 +39,7 @@ export default {
       simulador,
       states,
       banner_background: {
-        src: '/images/banner_simulador.webp',
+        src: 'images/banner_simulador.webp',
         color: '#ED7220'
       }
     }

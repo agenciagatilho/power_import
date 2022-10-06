@@ -4,16 +4,16 @@ import shrinkRay from 'shrink-ray-current'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  render: {
-    compressor: shrinkRay()
+  router: {
+    base: '/test-gatilho/viener/'
+    // base: '/passo-fundo-lancamento/'
   },
   generate: {
-    fallback: true,
-    exclude: ['/admin']
-    // routes: async () => {
-    //   const posts = await axios.get('https://wordpress.viener.com.br/wp-json/wp/v2/posts?_fields=slug')
-    //   return posts.data.map(post => `/blog/${post.slug}`)
-    // }
+    dir: 'viener'
+    // dir: 'passo-fundo-lancamento'
+  },
+  render: {
+    compressor: shrinkRay()
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

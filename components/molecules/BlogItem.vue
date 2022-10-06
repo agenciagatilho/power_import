@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
   ._blog_item{
-    @apply flex flex-col gap-30px rounded-19px
+    @apply flex flex-col gap-30px rounded-19px h-full
            overflow-hidden text-center;
            box-shadow: 0 0 0 3px var(--secondary);
 
@@ -53,7 +53,7 @@ export default {
     }
 
     .default_button{
-      @apply w-full rounded-0px py-10px mt-5px;
+      @apply w-full rounded-0px py-10px mt-auto;
     }
   }
 </style>

@@ -3,6 +3,17 @@
     <Banner :item="blog.banner" :background="banner_background" />
     <v-container class="_blog_content">
       <BlogItem v-for="post in blogPosts" :key="post.title" :item="post" />
+      <span class="_pagination">
+        <nuxt-link class="__lateral-buttons" :to="`/blog?page=${pagination[0]}`">
+          &lt;
+        </nuxt-link>
+        <nuxt-link :class="{'_current': item==currentPage}" v-for="item in pagination" :key="item" :to="`/blog?page=${item}`">
+          {{ item }}
+        </nuxt-link>
+        <nuxt-link class="__lateral-buttons" :to="`/blog?page=${pagination[pagination.length - 1]}`">
+          >
+        </nuxt-link>
+      </span>
     </v-container>
   </main>
 </template>
@@ -14,10 +25,13 @@ export default {
     return {
       blog,
       banner_background: {
-        src: '/images/banner_blog.webp',
+        src: 'images/banner_blog.webp',
         color: '#2E4739'
       },
-      blogPosts: []
+      blogPosts: [],
+      pagination: 0,
+      existNext: true,
+      currentPage: parseInt(this.$route.query.page || '1')
     }
   },
   head () {
@@ -39,36 +53,67 @@ export default {
       ]
     }
   },
-  mounted () {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
+  watch: {
+    '$route.query.page' (newVal, oldVal) {
+      this.generatePage()
     }
-    const base = '' + 'https://viener.com.br/proxy.php/'
-    fetch(base + 'https://viener.com.br/blog/wp-json/wp/v2/posts?page=1&per_page=3&_embed=wp:featuredmedia', requestOptions).then(res => (res.json().then((posts) => {
-      const basePosts = posts // require('@/data/blog.json')
-      const blogPosts = []
-
-      basePosts.forEach((item) => {
-        let image = { href: '/default_image.jpg' }
-        if (item._embedded['wp:featuredmedia']) {
-          image = item._embedded['wp:featuredmedia'][0]
-        }
-
-        blogPosts.push({
-          image: image.source_url,
-          title: item.title.rendered,
-          description: item.content.rendered,
-          link: item.link
-        })
-      })
-
-      if (this.$device.isMobile) {
-        this.blogPosts = blogPosts.slice(0, 3)
-      } else {
-        this.blogPosts = blogPosts.slice(0, 9)
+  },
+  mounted () {
+    this.generatePage()
+  },
+  methods: {
+    generatePage () {
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
       }
-    })))
+      const base = '' + 'https://viener.com.br/proxy.php/'
+
+      const postUrl = (page) => {
+        if (this.$device.isMobile) {
+          return `${base}https://viener.com.br/blog/wp-json/wp/v2/posts?page=${page}&per_page=3&_embed=wp:featuredmedia`
+        } else {
+          return `${base}https://viener.com.br/blog/wp-json/wp/v2/posts?page=${page}&per_page=6&_embed=wp:featuredmedia`
+        }
+      }
+
+      fetch(postUrl(this.$route.query.page || '1'), requestOptions).then(res => (res.json().then((posts) => {
+        const basePosts = posts // require('@/data/blog.json')
+        const blogPosts = []
+
+        basePosts.forEach((item) => {
+          let image = { href: '/default_image.jpg' }
+          if (item._embedded['wp:featuredmedia']) {
+            image = item?._embedded['wp:featuredmedia'][0] || ''
+          }
+
+          blogPosts.push({
+            image: image.source_url,
+            title: item.title.rendered,
+            description: item.content.rendered,
+            link: item.link
+          })
+        })
+
+        this.blogPosts = blogPosts
+      })))
+
+      fetch(postUrl(parseInt(this.$route.query.page) + 1 || '2'), requestOptions).then(res => (res.json().then((posts) => {
+        const pagination = []
+        if (posts.length) {
+          pagination.push(parseInt(this.$route.query.page) - 1 || '0')
+          pagination.push(parseInt(this.$route.query.page) || '1')
+          pagination.push(parseInt(this.$route.query.page) + 1 || '2')
+          this.existNext = true
+        } else {
+          pagination.push(parseInt(this.$route.query.page) - 2 || '0')
+          pagination.push(parseInt(this.$route.query.page) - 1 || '0')
+          pagination.push(parseInt(this.$route.query.page) || '1')
+          this.existNext = false
+        }
+        this.pagination = pagination.filter(p => p > 0)
+      })))
+    }
   }
 }
 </script>
@@ -79,6 +124,20 @@ export default {
     ._blog_content{
       .container{
         @apply grid grid-cols-3 gap-75px;
+
+        ._pagination{
+          @apply flex justify-center
+                 gap-10px
+                 col-span-3;
+
+          .__lateral-buttons.nuxt-link-exact-active {
+            @apply opacity-0 pointer-events-none;
+            transition: opacity 0s ease-in 0.05s;
+          }
+          .nuxt-link-exact-active{
+            @apply font-bold;
+          }
+        }
       }
     }
   }

@@ -4,29 +4,27 @@
       {{ category }}
     </h3>
     <div v-if="!$device.isMobile" class="_items">
-      <a
+      <div
         v-for="item in computedItems"
         :key="item.title"
-        :href="getLink(item)"
-        target="_blank"
         class="_item"
+        @click="openModal(item)"
       >
         <img :src="item.image.src" :alt="item.image.alt">
         <p>{{ item.title }}</p>
-      </a>
+      </div>
     </div>
 
     <MobileCarousel v-else-if="computedItemsInDesktop" class="_items">
-      <a
+      <div
         v-for="item in computedItemsInDesktop"
         :key="item.title"
-        :href="getLink(item)"
-        target="_blank"
+        @click="openModal(item)"
         class="_item"
       >
         <img :src="item.image.src" :alt="item.image.alt">
         <p>{{ item.title }}</p>
-      </a>
+      </div>
     </MobileCarousel>
 
     <section v-if="pagination.length > 1" class="_pagination">
@@ -50,6 +48,7 @@
 </template>
 
 <script>
+import { useEquipamentState } from '~/store/equipamentState'
 export default {
   props: {
     items: {
@@ -64,7 +63,8 @@ export default {
   data () {
     return {
       quantityPostsPerPage: this.$device.isMobile ? 1 : 4,
-      queryPage: 1
+      queryPage: 1,
+      state: useEquipamentState()
     }
   },
   computed: {
@@ -100,10 +100,12 @@ export default {
     }
   },
   methods: {
-    getLink (item) {
-      // const category = item.category.toLowerCase()
-      // return `/equipamentos/${category}/${item.slug}`
-      return 'https://plataforma.viener.com.br/login'
+    openModal (item) {
+      console.log(item)
+      this.state.image = item.image.src
+      this.state.title = item.title
+      this.state.description = item.description
+      this.state.open = true
     },
     setPage (index) {
       this.queryPage = index

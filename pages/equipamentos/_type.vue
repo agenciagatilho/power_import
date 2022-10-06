@@ -9,6 +9,7 @@
         Nenhum equipamento encontrado.
       </h2>
     </v-container>
+    <EquipamentModal />
   </main>
 </template>
 
@@ -19,7 +20,7 @@ export default {
     return {
       equipamentos,
       banner_background: {
-        src: '/images/banner_equipamentos.webp',
+        src: 'images/banner_equipamentos.webp',
         color: '#5EAC55'
       },
       items: null

@@ -1,7 +1,7 @@
 <template>
   <main id="energiasrenovaveis">
     <Banner :item="energiasrenovaveis.banner" :background="banner_background" />
-    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.renewableEnergy" image="/images/zac-durant.webp" alt="homem no por do sol" />
+    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.renewableEnergy" image="images/zac-durant.webp" alt="homem no por do sol" />
     <v-container class="_renewableEnergyItems">
       <component
         :is="$device.isMobile? 'VueSlickCarousel': 'div'"
@@ -27,8 +27,8 @@
         </button>
       </span>
     </v-container>
-    <GridTwoImageWithTextAndCta class="our_soluctions" :item="energiasrenovaveis.ourSolutions" image="/images/sungrow_1.webp" alt="painel solar" />
-    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.equipment" image="/images/sun_painel.webp" alt="painel solar com inversor" />
+    <GridTwoImageWithTextAndCta class="our_soluctions" :item="energiasrenovaveis.ourSolutions" image="images/sungrow_1.webp" alt="painel solar" />
+    <GridTwoImageWithTextAndCta :item="energiasrenovaveis.equipment" image="images/sun_painel.webp" alt="painel solar com inversor" />
     <FullscreenLinearText :item="energiasrenovaveis.callToAction" color="#5EA756" />
   </main>
 </template>
@@ -47,7 +47,7 @@ export default {
     return {
       energiasrenovaveis,
       banner_background: {
-        src: '/images/banner_energiasrenovaveis.webp',
+        src: 'images/banner_energiasrenovaveis.webp',
         color: '#2E4739'
       },
       settingsMobile: {

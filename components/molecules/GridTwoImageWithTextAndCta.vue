@@ -4,7 +4,6 @@
       <video
         v-if="image.includes('mp4')"
         controls
-        autoplay
         playsinline
         preload="metadata"
         :src="image"

@@ -1,7 +1,7 @@
 <template>
   <main id="integrador">
     <Banner :item="integrador.banner" :background="banner_background" />
-    <GridTwoImageWithForm id="integrador" image="/images/american-public-power-association.webp" alt="por do sol" :cta="integrador.form.cta" />
+    <GridTwoImageWithForm id="integrador" image="images/american-public-power-association.webp" alt="por do sol" :cta="integrador.form.cta" />
     <!-- <CarouselDepositions :title="integrador.depositions.title" :items="depositions" /> -->
   </main>
 </template>
@@ -15,7 +15,7 @@ export default {
       integrador,
       depositions,
       banner_background: {
-        src: '/images/banner_integrador.webp',
+        src: 'images/banner_integrador.webp',
         color: '#5EA756'
       }
     }

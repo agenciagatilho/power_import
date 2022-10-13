@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/energiasrenovaveis", {data:[{_img:{}}],fetch:{},mutations:[]});

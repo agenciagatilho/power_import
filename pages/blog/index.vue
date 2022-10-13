@@ -4,14 +4,23 @@
     <v-container class="_blog_content">
       <BlogItem v-for="post in blogPosts" :key="post.title" :item="post" />
       <span class="_pagination">
-        <nuxt-link class="__lateral-buttons" :to="`/blog?page=${pagination[0]}`">
-          &lt;
+        <nuxt-link class="__lateral-buttons" :class="{'_hide':pagination[0]==currentPage}" :to="`/blog?page=${pagination[0]}`">
+          <v-image src="prevBlog.svg" width="15px" height="15px" />
         </nuxt-link>
-        <nuxt-link :class="{'_current': item==currentPage}" v-for="item in pagination" :key="item" :to="`/blog?page=${item}`">
+        <nuxt-link
+          :class="{'_current': item==currentPage}"
+          v-for="item in pagination"
+          :key="item"
+          :to="`/blog?page=${item}`"
+        >
           {{ item }}
         </nuxt-link>
-        <nuxt-link class="__lateral-buttons" :to="`/blog?page=${pagination[pagination.length - 1]}`">
-          >
+        <nuxt-link
+          class="__lateral-buttons"
+          :class="{'_hide':pagination[pagination.length - 1]==currentPage}"
+          :to="`/blog?page=${pagination[pagination.length - 1]}`"
+        >
+          <v-image src="nextBlog.svg" width="15px" height="15px" />
         </nuxt-link>
       </span>
     </v-container>
@@ -31,7 +40,7 @@ export default {
       blogPosts: [],
       pagination: 0,
       existNext: true,
-      currentPage: parseInt(this.$route.query.page || '1')
+      currentPage: parseInt(this.$route.query.page) || 1
     }
   },
   head () {
@@ -126,15 +135,17 @@ export default {
         @apply grid grid-cols-3 gap-75px;
 
         ._pagination{
-          @apply flex justify-center
-                 gap-10px
+          @apply flex justify-center items-center
+                 gap-10px text-16px
                  col-span-3;
 
-          .__lateral-buttons.nuxt-link-exact-active {
+          .__lateral-buttons.nuxt-link-exact-active,
+          .__lateral-buttons._hide {
             @apply opacity-0 pointer-events-none;
             transition: opacity 0s ease-in 0.05s;
           }
-          .nuxt-link-exact-active{
+          .nuxt-link-exact-active,
+          ._current{
             @apply font-bold;
           }
         }

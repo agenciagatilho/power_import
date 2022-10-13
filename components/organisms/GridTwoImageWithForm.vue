@@ -11,6 +11,28 @@
         <v-input id="city" placeholder="Cidade" :maxlength="255" />
         <v-input id="company" placeholder="Empresa" :maxlength="255" />
         <v-input id="message" placeholder="Mensagem" type="textarea" :rows="5" />
+        <div class="_privacy">
+          <p>{{ sitemap.privacy.text }}</p>
+          <label>
+            <input type="radio" name="accept_privacy" required>
+            <div class="__box" />
+            <a :href="sitemap.privacy.url" target="_blank">
+              Aceito todo os termos e condições da Política de Privacidade.
+            </a>
+          </label>
+          <label>
+            <input type="radio" name="accept_privacy" required>
+            <div class="__box" />
+            <a :href="sitemap.privacy.url" target="_blank">
+              Não aceito os termos e condições da Política de Privacidade.
+            </a>
+          </label>
+          <label>
+            <input type="checkbox" name="accept_receive_email">
+            <div class="__box" />
+            Tenho interesse em receber e-mails da Viener sobre as novidades, ofertas e demais materiais informativos sobre os produtos.
+          </label>
+        </div>
         <button type="submit">
           {{ cta }}
         </button>
@@ -20,6 +42,7 @@
 </template>
 
 <script>
+import sitemap from '@/data/ptbr/sitemap.json'
 import { useToastStore } from '@/store/toastState'
 export default {
   props: {
@@ -46,7 +69,8 @@ export default {
   },
   data () {
     return {
-      toast: useToastStore()
+      toast: useToastStore(),
+      sitemap
     }
   },
   methods: {
@@ -73,9 +97,11 @@ export default {
           <strong>Cidade: </strong> ${form.city.value}<br>
           <strong>Empresa: </strong> ${form.company.value}<br>
           <strong>Mensagem: </strong> ${form.message.value}<br>
+          <br>
+          <strong>Uso de dados:</strong> ${form.accept_privacy[0].checked ? 'permitido' : 'negado'}<br>
+          <strong>Envio de emails:</strong> ${form.accept_receive_email.checked ? 'permitido' : 'negado'}<br>
         `
       }
-
       this.$api.send(data).then((res) => {
         this.toast.showToast('Formulário enviado com sucesso')
         form.reset()
@@ -126,6 +152,44 @@ export default {
 
           button{
             @apply col-start-2 px-27px ml-auto;
+          }
+
+          ._privacy{
+            @apply col-span-2 px-5px
+                   flex flex-col gap-10px;
+
+            p{
+              @apply font-bold text-22px;
+            }
+
+            label{
+              @apply text-15px
+                     grid gap-10px;
+              grid-template-columns: 15px 1fr;
+
+              .__box{
+                @apply w-14px h-14px relative mt-4px
+                       border border-$primary;
+                &::after{
+                  content: '';
+                  @apply absolute w-4/5 h-4/5
+                         top-1/2 left-1/2
+                         transform -translate-x-1/2 -translate-y-1/2;
+                  transition: background-color 0.2s ease-in-out;
+                }
+              }
+
+              input{
+                @apply opacity-0 pointer-events-none absolute;
+                &:checked + .__box::after{
+                  @apply bg-$primary;
+                }
+              }
+
+              a{
+                @apply underline;
+              }
+            }
           }
         }
       }

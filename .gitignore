@@ -89,5 +89,5 @@ sw.*
 # Vim swap files
 *.swp
 
-/passo-fundo-lancamento/
-/passo-fundo-lancamento/*
+/viener/
+/viener/*

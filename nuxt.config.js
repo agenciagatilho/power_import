@@ -5,12 +5,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/test-gatilho/viener/'
-    // base: '/passo-fundo-lancamento/'
+    // base: '/test-gatilho/viener/'
+    base: '/'
   },
   generate: {
-    dir: 'viener'
-    // dir: 'passo-fundo-lancamento'
+    // dir: 'viener'
   },
   render: {
     compressor: shrinkRay()

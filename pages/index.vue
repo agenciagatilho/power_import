@@ -52,9 +52,33 @@
       <form id="newsletter" @submit="submit">
         <v-input id="name" placeholder="Nome" :maxlength="100" />
         <v-input id="email" type="email" placeholder="E-mail" :maxlength="255" />
-        <button type="submit" class="alt">
-          {{ home.newsletter.cta }}
-        </button>
+        <span class="_bottom">
+          <div class="_privacy">
+            <p>{{ sitemap.privacy.text }}</p>
+            <label>
+              <input type="radio" name="accept_privacy" required>
+              <div class="__box" />
+              <a :href="sitemap.privacy.url" target="_blank">
+                Aceito todo os termos e condições da Política de Privacidade.
+              </a>
+            </label>
+            <label>
+              <input type="radio" name="accept_privacy" required>
+              <div class="__box" />
+              <a :href="sitemap.privacy.url" target="_blank">
+                Não aceito os termos e condições da Política de Privacidade.
+              </a>
+            </label>
+            <label>
+              <input type="checkbox" name="accept_receive_email">
+              <div class="__box" />
+              Tenho interesse em receber e-mails da Viener sobre as novidades, ofertas e demais materiais informativos sobre os produtos.
+            </label>
+          </div>
+          <button type="submit" class="alt">
+            {{ home.newsletter.cta }}
+          </button>
+        </span>
       </form>
     </v-container>
   </main>
@@ -63,6 +87,7 @@
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
 import home from '@/data/ptbr/home.json'
+import sitemap from '@/data/ptbr/sitemap.json'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import { useToastStore } from '@/store/toastState'
@@ -75,6 +100,7 @@ export default {
     return {
       toast: useToastStore(),
       home,
+      sitemap,
       banner_background: {
         src: 'images/banner_home.webp',
         color: '#5EAC55'
@@ -137,6 +163,9 @@ export default {
           <br><br>
           <strong>Nome: </strong> ${form.name.value}<br>
           <strong>Email: </strong> ${form.email.value}<br>
+          <br>
+          <strong>Uso de dados:</strong> ${form.accept_privacy[0].checked ? 'permitido' : 'negado'}<br>
+          <strong>Envio de emails:</strong> ${form.accept_receive_email.checked ? 'permitido' : 'negado'}<br>
         `
       }
 
@@ -234,10 +263,54 @@ export default {
       #newsletter{
         @apply grid grid-cols-2 gap-x-45px gap-y-30px
                w-full;
-        grid-template-rows: repeat(2, 39px);
+        grid-template-rows: 39px 1fr;
+
+        >._bottom{
+          @apply grid col-span-2;
+          grid-template-columns: 2fr 1fr
+        }
+
+        ._privacy{
+          @apply  px-5px
+                  flex flex-col gap-10px;
+
+          p{
+            @apply font-bold text-22px;
+          }
+
+          label{
+            @apply text-15px
+                    grid gap-10px;
+            grid-template-columns: 15px 1fr;
+
+            .__box{
+              @apply w-14px h-14px relative mt-4px
+                      border border-$text-light;
+
+              &::after{
+                content: '';
+                @apply absolute w-4/5 h-4/5
+                        top-1/2 left-1/2
+                        transform -translate-x-1/2 -translate-y-1/2;
+                transition: background-color 0.2s ease-in-out;
+              }
+            }
+
+            input{
+              @apply opacity-0 pointer-events-none absolute;
+              &:checked + .__box::after{
+                @apply bg-$text-light;
+              }
+            }
+
+            a{
+              @apply underline;
+            }
+          }
+        }
 
         button{
-          @apply col-start-2 ml-auto px-60px;
+          @apply col-start-2 ml-auto px-60px max-h-39px mt-auto;
         }
       }
     }

@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/equipamentos/materiaisdeprotecao", {data:[{_img:{}}],fetch:{},mutations:[]});

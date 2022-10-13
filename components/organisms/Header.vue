@@ -102,7 +102,7 @@ export default {
             a,p {
               color: var(--text-light);
 
-              &:nth-child(2){
+              &:nth-child(3){
                  font-size: 11px;
               }
             }

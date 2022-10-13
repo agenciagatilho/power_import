@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/equipamentos/inversores", {data:[{_img:{}}],fetch:{},mutations:[]});

@@ -1,10 +1,14 @@
 <template>
   <div class="_equipament_modal_outer" :class="{'_open': state.open}">
     <div class="_modal_inner">
-      <img :src="state.image" :alt="state.title">
-      <h2>{{ state.title }}</h2>
-      <p>{{ state.description }}</p>
-      <button class="_close" @click="closeModal">X</button>
+      <div>
+        <img :src="state.image" :alt="state.title">
+        <div class="_text">
+          <h2>{{ state.title }}</h2>
+          <p>{{ state.description }}</p>
+        </div>
+        <button class="_close" @click="closeModal">X</button>
+      </div>
     </div>
     <div class="_background" @click="closeModal"/>
   </div>
@@ -33,30 +37,57 @@ export default {
            transform -translate-x-1/2 -translate-y-1/2
            opacity-0 pointer-events-none;
 
-    ._modal_inner{
-      @apply w-60vw h-80vh relative z-2 p-35px
-             flex flex-col items-center gap-20px
-             bg-$text-light text-center
-             rounded-26px border-2px border-$primary
-             overflow-y-auto overflow-x-hidden;
+    /* width */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
 
-      img{
-        @apply w-24vw
-               object-center object-contain;
-      }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+      border-radius: 10px;
+    }
 
-      h2{
-        @apply text-$primary;
-      }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 6px;
+    }
 
-      p{
-        @apply text-$text;
-      }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
 
-      ._close{
-        @apply absolute top-20px right-20px
-               bg-transparent text-$primary
-               p-0 text-24px;
+    ._modal_inner {
+      @apply w-80vw h-80vh relative z-2 p-55px
+              bg-$text-light text-center
+              rounded-26px border-2px border-$primary;
+      >div{
+        @apply grid grid-cols-2 gap-20px
+               h-full overflow-y-auto overflow-x-hidden;
+
+        img{
+          @apply w-full h-[calc(80vh-120px)]
+                object-center object-contain;
+        }
+
+        ._text{
+          @apply flex flex-col gap-20px;
+          h2{
+            @apply text-$primary;
+          }
+
+          p{
+            @apply text-$text;
+          }
+        }
+
+        ._close{
+          @apply absolute top-20px right-20px
+                bg-transparent text-$primary
+                p-0 text-24px;
+        }
       }
     }
 

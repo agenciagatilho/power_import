@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/equipamentos/estrutura", {data:[{_img:{}}],fetch:{},mutations:[]});

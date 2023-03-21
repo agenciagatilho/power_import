@@ -130,10 +130,15 @@ main >*{
 }
 
 @media screen and (max-width: 768px){
+    html{
+        overflow: auto;
+        margin: 100px auto;
+    }
     main{
         text-align: center;
         align-items: center;
         width: 85%;
+        margin: 100px auto;
     }
     .background{
         background: none;

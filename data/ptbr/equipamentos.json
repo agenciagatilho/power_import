@@ -1,0 +1,14 @@
+{
+  "banner": {
+    "title": "Equipamentos para soluções sustentáveis",
+    "description": "Trabalhamos com grandes marcas do mercado para entregar a você produtos e kits com máxima qualidade para o seu projeto de geração de energia renovável."
+  },
+  "callToAction": {
+    "title": "Transforme sua energia com a Viener",
+    "description": "Entre em contato e entenda como podemos trabalhar juntos para melhorar a sua produção de energia.",
+    "cta": {
+      "title": "Solicite um orçamento.",
+      "url": "contato"
+    }
+  }
+}

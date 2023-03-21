@@ -1,0 +1,67 @@
+{
+  "home": {
+    "text": "Home",
+    "url": "/"
+  },
+  "quemSomos": {
+    "text": "Quem somos",
+    "url": "/quemsomos"
+  },
+  "energiasRenovaveis": {
+    "text": "Energias renováveis",
+    "url": "/energiasrenovaveis"
+  },
+  "equipamentos": {
+    "text": "Equipamentos",
+    "submenu": {
+      "modulos": {
+        "text": "Módulos",
+        "url": "/equipamentos/modulos"
+      },
+      "inversores": {
+        "text": "Inversores",
+        "url": "/equipamentos/inversores"
+      },
+      "materiaisdeprotecao": {
+        "text": "Materiais de proteção",
+        "url": "/equipamentos/materiaisdeprotecao"
+      },
+      "estrutura": {
+        "text": "Estrutura",
+        "url": "/equipamentos/estrutura"
+      },
+      "outrosmateriais": {
+        "text": "Outros materiais",
+        "url": "/equipamentos/outrosmateriais"
+      }
+    }
+  },
+  "simulador": {
+    "text": "Simulador",
+    "url": "/simulador"
+  },
+  "blog": {
+    "text": "Blog",
+    "url": "/blog"
+  },
+  "integrador": {
+    "text": "Integrador",
+    "url": "/integrador"
+  },
+  "contato": {
+    "text": "Contato",
+    "url": "/contato"
+  },
+  "plataforma": {
+    "text": "Acessar plataforma",
+    "url": "https://plataforma.viener.com.br/login"
+  },
+  "faleComIntegrador": {
+    "text": "Fale conosco",
+    "url": "https://linktr.ee/viener"
+  },
+  "privacy": {
+    "text": "Política de Privacidade",
+    "url": ""
+  }
+}

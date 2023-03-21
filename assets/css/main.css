@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
 :root{
     --primary: #ED7220;
     --secondary: #2D4639;
@@ -43,7 +41,7 @@ h2{
 }
 
 .background{
-    background-image: url('../images/background.png');
+    background-image: url('../images/background.webp');
     background-size: cover;
     background-position: 47%;
     background-repeat: no-repeat;

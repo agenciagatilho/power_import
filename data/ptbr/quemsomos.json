@@ -1,0 +1,29 @@
+{
+  "banner": {
+    "title": "Agilidade e boas experiências.",
+    "description": "Um dos nossos principais objetivos é levar segurança às pessoas conectadas à nossa marca com a excelência dos nossos serviços e produtos, olhando para cada situação de forma única, contribuindo com um amanhã mais sustentável."
+  },
+  "detailsAttention": {
+    "title": "Atenção aos detalhes",
+    "description": "Desde o início, buscamos sempre as melhores formas de entregar soluções eficientes, antecipando problemas, sempre atentos às oportunidades do mercado, mas, principalmente, olhando para a necessidade das pessoas.<br><br>Voltamos nossa atenção aos detalhes, às pessoas e às parcerias construídas através de boas experiências e de produtos e serviços de qualidade. Dessa forma, queremos deixar nossa marca no mundo, ajudando a construir um lugar melhor para todos, com economia e sustentabilidade.",
+    "cta": {
+      "text": "Conheça nossas soluções",
+      "url": "/energiasrenovaveis"
+    }
+  },
+  "careAndResponsibility": {
+    "title": "Cuidado e responsabilidade",
+    "description": "Fortalecemos nossas parcerias nos colocando lado a lado com nossos clientes e demonstrando consideração e zelo. Compartilhamos conhecimento e garantimos um ponto de assistência aos nossos clientes.<br><br>Oferecemos apoio em todos os pontos de conexão, sendo receptíveis às necessidades e olhando para o todo com atenção aos detalhes. Nossas relações são baseadas em confiança, e nos dedicamos para entregar soluções efetivas."
+  },
+  "transformEnergyWithViener": {
+    "title": "Transforme sua energia com a Viener",
+    "description": "Entre em contato e entenda como podemos trabalhar juntos para melhorar a sua produção de energia.",
+    "cta": {
+      "text": "Entre em contato",
+      "url": "/contato"
+    }
+  },
+  "depositions": {
+    "title": "Conheça a opinião de quem já é cliente"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "social_media": "Siga-nos nas redes sociais",
+  "menu": [
+    "home",
+    "quemsomos",
+    "energiasrenovaveis",
+    "equipamentos",
+    "blog",
+    "integrador",
+    "contato"
+  ],
+  "contact": {
+    "email": "contato@viener.com.br",
+    "telphone": "(49) 99943-0325",
+    "address": "Rua A, Loteamento Mumbach 2, Iraceminha-SC"
+  },
+  "privacy": "Política de Privacidade",
+  "gatilho": "Desenvolvido por Gatilho"
+}

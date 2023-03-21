@@ -1,0 +1,69 @@
+:root{
+  --text: #2E4739;
+  --text-light: #FFFFFF;
+
+  --primary: #ED7220;
+  --secondary: #5EA756;
+  --secondary-dark: #2E4739;
+}
+
+html {
+  font-family: 'Cairo';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #2E4739;
+  overflow-x: hidden;
+  margin: 0 !important;
+}
+.__accs_text{
+  @apply absolute text-0px opacity-0 pointer-events-none;
+}
+* {
+  outline: none;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 64px;
+}
+h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+}
+h3 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+}
+button:not(.not), .default_button{
+  @apply px-25px py-7px rounded-15px
+         bg-$primary w-max
+         font-bold text-$text-light;
+
+  &.alt{
+    @apply bg-$text;
+  }
+}
+
+@media screen and (max-width: 768px){
+  html {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  h1 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}

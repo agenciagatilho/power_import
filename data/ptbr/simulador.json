@@ -1,0 +1,9 @@
+{
+  "banner": {
+    "title": "Calculadora de energias renováveis",
+    "description": "Faça sua simulação e veja quanto você economiza quando utiliza um sistema de energias renováveis."
+  },
+  "form": {
+    "cta": "Calcular"
+  }
+}
